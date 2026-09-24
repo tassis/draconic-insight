@@ -1,0 +1,88 @@
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version '2.0.141'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://www.cursemaven.com' }
+    maven { url = 'https://maven.blamejared.com' }
+}
+
+neoForge {
+    version = neo_version
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+
+    unitTest {
+        enable()
+        testedMod = mods."${mod_id}"
+    }
+
+    runs {
+        client {
+            client()
+            gameDirectory = project.file('run-client')
+        }
+        server {
+            server()
+            gameDirectory = project.file('run-server')
+        }
+    }
+}
+
+dependencies {
+    compileOnly 'curse.maven:draconic-evolution-223565:8797042'
+    compileOnly 'curse.maven:brandons-core-231382:7130990'
+    compileOnly 'curse.maven:codechicken-lib-242818:8491811'
+    compileOnly 'mezz.jei:jei-1.21.1-neoforge-api:19.51.0.418'
+    compileOnly 'curse.maven:jade-324717:8591319'
+
+    runtimeOnly 'curse.maven:draconic-evolution-223565:8797042'
+    runtimeOnly 'curse.maven:brandons-core-231382:7130990'
+    runtimeOnly 'curse.maven:codechicken-lib-242818:8491811'
+    runtimeOnly 'mezz.jei:jei-1.21.1-neoforge:19.51.0.418'
+    runtimeOnly 'curse.maven:jade-324717:8591319'
+
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    var replaceProperties = [
+        minecraft_version: minecraft_version,
+        neo_version: neo_version,
+        mod_id: mod_id,
+        mod_name: mod_name,
+        mod_version: mod_version
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from 'src/main/templates'
+    into 'build/generated/sources/modMetadata'
+}
+
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
