@@ -2,6 +2,10 @@ name: Build
 
 on:
   push:
+    branches:
+      - '**'
+    tags:
+      - 'v*'
   pull_request:
   workflow_dispatch:
 
@@ -16,6 +20,9 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+
+    outputs:
+      version: ${{ steps.version.outputs.value }}
 
     steps:
       - name: Check out repository
@@ -34,6 +41,21 @@ jobs:
         with:
           gradle-version: '9.2.1'
 
+      - name: Read and validate version
+        id: version
+        shell: bash
+        run: |
+          version="$(sed -n 's/^mod_version=//p' gradle.properties)"
+          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "mod_version must be a stable semantic version, got: $version" >&2
+            exit 1
+          fi
+          if [[ "$GITHUB_REF_TYPE" == "tag" && "$GITHUB_REF_NAME" != "v$version" ]]; then
+            echo "Tag $GITHUB_REF_NAME does not match mod_version=$version; expected v$version" >&2
+            exit 1
+          fi
+          echo "value=$version" >> "$GITHUB_OUTPUT"
+
       - name: Test and build
         run: gradle --no-daemon clean test build
 
@@ -48,6 +70,36 @@ jobs:
       - name: Upload Draconic Insight JAR
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: draconic-insight-0.1.0
-          path: build/libs/draconic_clarity-0.1.0.jar
+          name: draconic-insight-${{ steps.version.outputs.value }}
+          path: build/libs/draconic_insight-${{ steps.version.outputs.value }}.jar
           if-no-files-found: error
+
+  release:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download release JAR
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: draconic-insight-${{ needs.build.outputs.version }}
+          path: dist
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.build.outputs.version }}
+        shell: bash
+        run: |
+          jar="dist/draconic_insight-${VERSION}.jar"
+          test -f "$jar"
+          gh release create "$GITHUB_REF_NAME" "$jar" \
+            --repo "$GITHUB_REPOSITORY" \
+            --verify-tag \
+            --title "Draconic Insight ${VERSION}" \
+            --generate-notes

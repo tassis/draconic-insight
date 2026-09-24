@@ -1,12 +1,12 @@
 modLoader="javafml"
 loaderVersion="[4,)"
-license="All Rights Reserved"
+license="MIT"
 
 [[mods]]
 modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
-authors="Traveler: Echoes"
+authors="Tassis"
 description='''Field notes for Draconic Evolution, with optional Patchouli, JEI, and Jade integrations.'''
 
 [[dependencies.${mod_id}]]

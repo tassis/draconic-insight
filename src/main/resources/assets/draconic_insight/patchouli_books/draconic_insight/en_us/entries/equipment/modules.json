@@ -1,0 +1,36 @@
+{
+  "name": "Installing Modules",
+  "icon": "draconicevolution:module_core",
+  "category": "draconic_insight:equipment",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:module_core",
+      "title": "Finding the Hidden Grid",
+      "text": "Modular equipment is deliberately incomplete until its grid is filled. Carry a modular item, use the configurable $(thing)Tool Modules$() keybind (default: Shift+C), then select the host and place modules.$(br2)Shapes, install limits, compatible hosts, and maximum tiers all matter; the grid rejects an impossible placement."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Common Module Families",
+      "text": "$(bold)All powered hosts:$() energy.$(br)$(bold)Tools and staff:$() damage, speed, mining area, tree harvest, junk filtering.$(br)$(bold)Chestpiece:$() shield control/capacity/recovery, movement, flight, undying, auto-feed.$(br)$(bold)Bow:$() projectile damage, velocity, accuracy, penetration, and gravity compensation."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Measure Before Committing",
+      "text": "Higher-tier modules often occupy more space, so the grandest module is not always the best fit. Place required controls—Shield Control, for example—before capacity and recovery.$(br2)Read each module's description and compare its grid shape and limits before spending Fusion materials."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:modules/module_core",
+      "recipe2": "draconicevolution:modules/item_draconium_energy",
+      "title": "Module Basics"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:modules/item_wyvern_shield_control",
+      "recipe2": "draconicevolution:modules/item_wyvern_flight",
+      "title": "Chestpiece Modules"
+    }
+  ]
+}

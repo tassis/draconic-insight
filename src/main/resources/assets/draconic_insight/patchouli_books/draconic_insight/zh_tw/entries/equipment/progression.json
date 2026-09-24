@@ -1,0 +1,30 @@
+{
+  "name": "循著材料留下的足跡",
+  "icon": "draconicevolution:draconium_ingot",
+  "category": "draconic_insight:equipment",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "足跡的起點",
+      "text": "材料足跡從挖出的龍礦開始；依目前配方把粉末或礦石加工成錠。龍礦核心、能量核心，接著是飛龍核心，構成前期零件鏈。$(br2)若舊資料說法不同，以目前配方與機器介面為準。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "聚合通往何處",
+      "text": "聚合製作打開了覺醒龍礦與神龍裝備零件的道路；最末端的混沌工藝則需要終局的混沌材料。$(br2)代價不小的一課：配方指定的注入器階級是硬性需求，不是速度建議。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:components/draconium_core",
+      "recipe2": "draconicevolution:components/wyvern_core",
+      "title": "核心零件"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:awakened_core",
+      "title": "聚合零件",
+      "text": "覺醒與混沌核心都是聚合製品，各自屬於對應材料階級，也需要實際配方指定階級的注入器。$(br2)此處以物品圖示取代空白配方框；普通框架無法呈現聚合。"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "模組化裝備",
+  "icon": "draconicevolution:wyvern_pickaxe",
+  "category": "draconic_insight:equipment",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "空蕩蕩的工具就是線索",
+      "text": "新模組化工具剛到手時很平凡，因為電容、工具、弓、權杖與胸甲都只是模組主裝備；階級決定網格空間與可接受的模組階級。$(br2)更好的主裝備只是為更多、更強的效果騰出空間；能力不會憑空附在裸裝上。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:wyvern_capacitor",
+      "title": "第一格總是先留給能量",
+      "text": "多數供能裝備先裝能量模組，容量與傳輸才真正實用。就連電容也要有合適的能量模組與外部 OP，才能為其他物品充電。$(br2)先保留能量空間，再規劃傷害、挖掘範圍、速度、護盾或飛行。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:wyvern_pickaxe",
+      "title": "飛龍裝備",
+      "text": "飛龍工具與護甲來自聚合，而不是普通工作台。各主裝備依自己的配方製作，通常以熟悉的工具或核心作為觸媒。$(br2)配方顯示功能可以列出精確材料；若無此功能，材料齊全時，聚合核心也會確認這組配置。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:draconic_staff",
+      "title": "神龍裝備",
+      "text": "神龍裝備是飛龍裝備之上的另一段聚合。神龍權杖會消耗先前的神龍工具，因此升級途中要保留它們。$(br2)這裡只呈現完成品，因為書中的普通配方框無法呈現聚合配置。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:wyvern_capacitor",
+      "title": "電容",
+      "text": "電容同樣是聚合製品。飛龍與神龍版本沿用對應階級的核心、能量核心與材料。$(br2)精確數量以目前配方為準；若沒有配方顯示功能，就把這頁當成路標，而不是完整材料帳。"
+    }
+  ]
+}

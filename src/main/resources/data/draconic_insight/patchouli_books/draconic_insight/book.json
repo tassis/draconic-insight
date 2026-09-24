@@ -1,0 +1,9 @@
+{
+  "name": "book.draconic_insight.name",
+  "landing_text": "book.draconic_insight.landing",
+  "version": 1,
+  "show_progress": false,
+  "pause_game": false,
+  "model": "patchouli:book_purple",
+  "use_resource_pack": true
+}

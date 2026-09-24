@@ -1,0 +1,69 @@
+{
+  "name": "A Reactor Far from Home",
+  "icon": "draconicevolution:reactor_core",
+  "category": "draconic_insight:reactor",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:reactor_core",
+      "title": "The First Rule Is Distance",
+      "text": "$(bold)Warning:$() Choose a place whose loss is survivable. A failed Draconic Reactor can erase a vast area, so keep it far from bases, chunk borders, irreplaceable terrain, and other reactors. Keep the whole site loaded and give containment its own redundant power."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Six Clear Lines from the Core",
+      "text": "The measured rule is simple: the Core scans six cardinal directions. A component must face it across clear air at a distance of 4–7 blocks; the first solid thing on that line must be the intended component.$(br2)This example puts four stabilizers in a horizontal plane, leaving the vertical axis for one or two Energy Injectors."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Four Stabilizers",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0   S    ", "         ", "         ", "         ", "S   C   S", "         ", "         ", "         ", "    S    "]
+        ],
+        "mapping": {
+          "S": "draconicevolution:reactor_stabilizer",
+          "C": "minecraft:purple_stained_glass"
+        },
+        "offset": [4, 0, 4],
+        "symmetrical": true
+      },
+      "text": "Top-view sketch at minimum distance. Purple only marks the real Reactor Core—do not place glass. Four stabilizers stand four blocks away and face inward."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Vertical Injector Axis",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0"],
+          ["C"],
+          [" "],
+          [" "],
+          [" "],
+          ["I"]
+        ],
+        "mapping": {
+          "C": "minecraft:purple_stained_glass",
+          "I": "draconicevolution:reactor_injector"
+        },
+        "offset": [0, 1, 0]
+      },
+      "text": "For the horizontal stabilizer layout above, place an Energy Injector 4–7 blocks directly above the Core and face it downward. Feed containment power into its outer side; a second injector may be placed below. The entire arrangement may be rotated together."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:reactor_core",
+      "title": "Core and Stabilizers",
+      "text": "The Reactor Core and its Stabilizers are late Fusion products. Build all five before choosing the site; exactly four stabilizers are required for one reactor."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:reactor_injector",
+      "title": "Energy Injector",
+      "text": "The Energy Injector is also made by Fusion. One is sufficient; a second may stand opposite it. Keep any spare away from the reactor site rather than storing every critical part beside the hazard."
+    }
+  ]
+}

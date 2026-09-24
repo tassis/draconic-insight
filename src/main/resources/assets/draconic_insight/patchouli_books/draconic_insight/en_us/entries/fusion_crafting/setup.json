@@ -1,0 +1,42 @@
+{
+  "name": "Sketching the Fusion Circle",
+  "icon": "draconicevolution:crafting_core",
+  "category": "draconic_insight:fusion_crafting",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:crafting_core",
+      "title": "The Quiet Center",
+      "text": "The Crafting Core sits at the center with the catalyst and, eventually, the result. Injectors hold the surrounding ingredients and drink OP while charging.$(br2)The Core searches along its six axes. Every injector must face it across a clear line."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Measured Distances",
+      "text": "The measured cardinal distance is 3–16 blocks. Slightly off-axis positions may answer, but a clean cardinal circle is far easier to inspect.$(br2)Keep every sight line empty: even another injector between one injector and the Core breaks the arrangement."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Example Four-Injector Layout",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0  I   ", "       ", "       ", "I  C  I", "       ", "       ", "   I   "]
+        ],
+        "mapping": {
+          "I": "draconicevolution:basic_crafting_injector",
+          "C": "minecraft:purple_stained_glass"
+        },
+        "symmetrical": true,
+        "offset": [3, 0, 3]
+      },
+      "text": "One working example, not a mandatory shape. Purple only marks the real Crafting Core—do not place glass. Each injector stands three blocks away and faces inward."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/crafting_core",
+      "recipe2": "draconicevolution:machines/basic_crafting_injector",
+      "title": "Basic Fusion Setup"
+    }
+  ]
+}

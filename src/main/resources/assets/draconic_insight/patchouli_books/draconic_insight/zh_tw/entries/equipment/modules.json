@@ -1,0 +1,36 @@
+{
+  "name": "安裝模組",
+  "icon": "draconicevolution:module_core",
+  "category": "draconic_insight:equipment",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:module_core",
+      "title": "找到藏起來的網格",
+      "text": "模組化裝備刻意保留了尚待填充的網格。攜帶模組化物品，按下可自訂的$(thing)工具模組$()按鍵（預設 Shift+C），選擇主裝備後再放入模組。$(br2)形狀、數量限制、相容裝備與最高階級都算數；不可能的配置會被網格拒絕。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "常見模組類別",
+      "text": "$(bold)所有供能主裝備：$()能量。$(br)$(bold)工具與權杖：$()傷害、速度、挖掘範圍、伐木、垃圾過濾。$(br)$(bold)胸甲：$()護盾控制／容量／回復、移動、飛行、不死、自動進食。$(br)$(bold)弓：$()投射物傷害、速度、精準、穿透與重力補償。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "裝上去以前先量好",
+      "text": "高階模組往往占用更多空間，因此最強的不一定最合適。先放護盾控制這類必要控制模組，再考慮容量與回復。$(br2)消耗聚合材料前，先讀物品說明，並比較各模組在網格中的形狀與限制。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:modules/module_core",
+      "recipe2": "draconicevolution:modules/item_draconium_energy",
+      "title": "模組基礎"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:modules/item_wyvern_shield_control",
+      "recipe2": "draconicevolution:modules/item_wyvern_flight",
+      "title": "胸甲模組"
+    }
+  ]
+}
