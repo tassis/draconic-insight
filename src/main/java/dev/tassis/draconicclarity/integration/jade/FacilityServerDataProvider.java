@@ -24,8 +24,6 @@ public enum FacilityServerDataProvider implements IServerDataProvider<BlockAcces
 
     private static void writeCore(CompoundTag data, TileEnergyCore core) {
         data.putString(FacilityJadeKeys.KIND, "core");
-        data.putInt(FacilityJadeKeys.TIER, core.tier.get());
-        data.putBoolean(FacilityJadeKeys.ACTIVE, core.active.get());
         data.putBoolean(FacilityJadeKeys.VALID, core.coreValid.get());
         data.putBoolean(FacilityJadeKeys.STABILIZERS, core.stabilizersValid.get());
         data.putString(FacilityJadeKeys.ENERGY, core.energy.getStoredBig().toString());
@@ -43,8 +41,6 @@ public enum FacilityServerDataProvider implements IServerDataProvider<BlockAcces
         var corePos = pylon.getBlockPos().subtract(offset);
         if (level == null || !level.hasChunkAt(corePos) || !(level.getBlockEntity(corePos) instanceof TileEnergyCore core)) return;
         data.putBoolean(FacilityJadeKeys.LINKED, true);
-        data.putInt(FacilityJadeKeys.TIER, core.tier.get());
-        data.putBoolean(FacilityJadeKeys.ACTIVE, core.active.get());
         data.putString(FacilityJadeKeys.ENERGY, core.energy.getStoredBig().toString());
         if (core.energy.isUnlimited()) data.putBoolean(FacilityJadeKeys.UNLIMITED, true);
         else data.putLong(FacilityJadeKeys.CAPACITY, core.energy.getMaxOPStored());
@@ -53,19 +49,16 @@ public enum FacilityServerDataProvider implements IServerDataProvider<BlockAcces
     private static void writeFusionCore(CompoundTag data, TileFusionCraftingCore core) {
         data.putString(FacilityJadeKeys.KIND, "fusion_core");
         data.putBoolean(FacilityJadeKeys.CRAFTING, core.isCrafting());
-        data.putString(FacilityJadeKeys.STATE, core.getFusionState().name().toLowerCase(java.util.Locale.ROOT));
         float progress = core.progress.get();
         if (progress >= 0F && progress <= 1F) data.putFloat(FacilityJadeKeys.PROGRESS, progress);
         var injectors = core.getInjectors();
         data.putInt(FacilityJadeKeys.INJECTORS, injectors.size());
         int occupied = (int) injectors.stream().filter(injector -> !injector.getInjectorStack().isEmpty()).count();
         data.putInt(FacilityJadeKeys.OCCUPIED, occupied);
-        if (occupied > 0) data.putString(FacilityJadeKeys.TIER, core.getMinimumTier().name());
     }
 
     private static void writeInjector(CompoundTag data, TileFusionCraftingInjector injector) {
         data.putString(FacilityJadeKeys.KIND, "injector");
-        data.putString(FacilityJadeKeys.TIER, injector.getInjectorTier().name());
         var corePosition = injector.corePos.get().getPos();
         var level = injector.getLevel();
         data.putBoolean(FacilityJadeKeys.LINKED, level != null && level.hasChunkAt(corePosition)

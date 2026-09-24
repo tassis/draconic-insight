@@ -1,0 +1,30 @@
+{
+  "name": "Direct I/O Crystals",
+  "icon": "draconicevolution:basic_io_crystal",
+  "category": "draconic_clarity:energy_networks",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:basic_io_crystal",
+      "title": "The Crystal That Touches",
+      "text": "A Direct I/O crystal only listens to the machine or store touching it. Place it against the chosen face, then Binder-link it into the network.$(br2)Sneak-use it empty-handed to switch mode. $(bold)Input$() pulls from the neighbor; $(bold)Output$() sends to it."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Link Limits",
+      "text": "Direct I/O crystals allow 2, 3, or 4 crystal links at Draconium, Wyvern, and Draconic tiers. Their ranges are 32, 64, and 127 blocks.$(br2)An idle machine often means the crystal touches the wrong face. Check contact, then switch mode once and test again."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/basic_io_crystal",
+      "recipe2": "draconicevolution:machines/wyvern_io_crystal",
+      "title": "Direct I/O"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/draconic_io_crystal",
+      "title": "Draconic Direct I/O"
+    }
+  ]
+}

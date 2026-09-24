@@ -2,8 +2,6 @@ package dev.tassis.draconicclarity.integration.jade;
 
 public final class FacilityJadeKeys {
     public static final String KIND = "FacilityKind";
-    public static final String TIER = "Tier";
-    public static final String ACTIVE = "Active";
     public static final String VALID = "Valid";
     public static final String STABILIZERS = "Stabilizers";
     public static final String ENERGY = "Energy";
@@ -12,7 +10,6 @@ public final class FacilityJadeKeys {
     public static final String MODE = "Mode";
     public static final String LINKED = "Linked";
     public static final String CRAFTING = "Crafting";
-    public static final String STATE = "State";
     public static final String PROGRESS = "Progress";
     public static final String INJECTORS = "Injectors";
     public static final String OCCUPIED = "Occupied";

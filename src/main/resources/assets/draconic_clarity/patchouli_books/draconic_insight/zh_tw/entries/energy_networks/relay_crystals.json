@@ -1,0 +1,31 @@
+{
+  "name": "中繼水晶",
+  "icon": "draconicevolution:basic_relay_crystal",
+  "category": "draconic_clarity:energy_networks",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:basic_relay_crystal",
+      "title": "中繼水晶究竟在做什麼",
+      "text": "忽高忽低的流量是正常現象，不是故障。中繼水晶依充能百分比平衡兩端，因此沒有固定的 OP/t；流量本來就會隨兩邊的能量與剩餘空間變化。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "階級與上限",
+      "text": "實測上限：$(br2)$(bold)龍礦：$()4M OP、8 條連線、32 格。$(br)$(bold)飛龍：$()16M OP、16 條連線、64 格。$(br)$(bold)神龍：$()64M OP、32 條連線、127 格。$(br2)不確定是否運作時，直接觀察兩端儲能量有沒有變化。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/basic_relay_crystal",
+      "recipe2": "draconicevolution:machines/wyvern_relay_crystal",
+      "title": "中繼水晶"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:draconic_relay_crystal",
+      "title": "神龍中繼水晶",
+      "text": "神龍中繼水晶是聚合升級，無法畫在普通工作台配方框裡。它擁有上方紀錄中最大的連線數與範圍。"
+    }
+  ]
+}

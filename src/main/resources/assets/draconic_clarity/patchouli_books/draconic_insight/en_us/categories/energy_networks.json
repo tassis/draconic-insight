@@ -1,0 +1,6 @@
+{
+  "name": "Energy Networks",
+  "description": "Observed behavior and measured limits for relay, direct, and wireless crystal networks.",
+  "icon": "draconicevolution:basic_relay_crystal",
+  "sortnum": 10
+}

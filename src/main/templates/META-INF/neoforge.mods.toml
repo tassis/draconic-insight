@@ -7,7 +7,7 @@ modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
 authors="Traveler: Echoes"
-description='''Version-locked JEI and Jade information for Draconic Evolution.'''
+description='''Field notes for Draconic Evolution, with optional Patchouli, JEI, and Jade integrations.'''
 
 [[dependencies.${mod_id}]]
 modId="neoforge"
@@ -41,5 +41,12 @@ side="CLIENT"
 modId="jade"
 type="optional"
 versionRange="[15.10.6,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="patchouli"
+type="optional"
+versionRange="[1.21.1-93,)"
 ordering="AFTER"
 side="BOTH"

@@ -1,0 +1,42 @@
+{
+  "name": "畫出聚合圓陣",
+  "icon": "draconicevolution:crafting_core",
+  "category": "draconic_clarity:fusion_crafting",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:crafting_core",
+      "title": "安靜的中心",
+      "text": "製作核心位於中央，承載觸媒，最後也留下產物。周圍材料各自放在注入器裡，充能時會吞入 OP。$(br2)核心沿六個軸向尋找注入器；每一個都要面向核心，兩者間不可有遮擋。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "粉筆記號量出的距離",
+      "text": "實測有效軸向距離為 3～16 格。稍微偏軸的位置或許也有反應，但整齊的正軸圓陣最好檢查。$(br2)每條視線都要淨空；即使只是另一個注入器擋在中間，也會破壞配置。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "四注入器配置範例",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0  I   ", "       ", "       ", "I  C  I", "       ", "       ", "   I   "]
+        ],
+        "mapping": {
+          "I": "draconicevolution:basic_crafting_injector",
+          "C": "minecraft:purple_stained_glass"
+        },
+        "symmetrical": true,
+        "offset": [3, 0, 3]
+      },
+      "text": "這是一個成功範例，不是強制形狀。紫色只是標示真正製作核心的記號，切勿放玻璃；每個注入器距離三格並面向內側。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/crafting_core",
+      "recipe2": "draconicevolution:machines/basic_crafting_injector",
+      "title": "基礎聚合系統"
+    }
+  ]
+}

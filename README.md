@@ -1,19 +1,28 @@
-# Draconic Clarity
+# Draconic Insight
 
-Independent NeoForge `1.21.1` information integration for the locked Draconic Evolution stack in Traveler: Echoes.
+[![Build](https://github.com/tassis/draconic-insight/actions/workflows/build.yml/badge.svg)](https://github.com/tassis/draconic-insight/actions/workflows/build.yml)
 
-The mod keeps three concerns separate:
+Independent NeoForge `1.21.1` information companion for Draconic Evolution.
 
+The mod keeps four concerns separate:
+
+- Patchouli provides a craftable bilingual handbook for progression, structures, energy systems, Fusion Crafting, and modular equipment.
 - JEI provides searchable, localized static explanations.
 - EMI receives JEI information through JEMI when that bridge supports the information recipe type.
-- Jade provides server-authoritative live machine and crystal diagnostics.
+- Jade provides server-authoritative live facility diagnostics. Crystal details remain available as an opt-in Jade setting, disabled by default because Draconic Evolution already supplies a native crystal HUD. Recent crystal power-flow telemetry has its own setting and is also disabled by default.
 
-Draconic Evolution is required; JEI and Jade are optional integrations. Historical Retro Draconic support is outside the active runtime and acceptance scope. The mod does not change energy transfer, recipes, equipment balance, or progression.
+Draconic Evolution is required; Patchouli, JEI, and Jade are optional integrations. The handbook is crafted shapelessly from one Book and one Draconium Dust when Patchouli is installed. Historical Retro Draconic support is outside the active runtime and acceptance scope. The mod does not change energy transfer, recipes, equipment balance, or progression.
 
-## Docker build
+The public project name is Draconic Insight. The existing technical mod ID and resource namespace remain `draconic_clarity` for the current development line.
+
+## Build
+
+GitHub Actions runs the full test and build pipeline for every push and pull request, then uploads the `0.1.0` JAR as a workflow artifact.
+
+The local Docker build uses the same Gradle and Java versions as CI:
 
 ```bash
 docker compose run --rm gradle gradle --no-daemon clean test build
 ```
 
-The output JAR is written under `build/libs/`. Development artifacts must be staged through the explicit Packwiz local-artifact process and remain release-blocked until they have an approved publication path.
+The output JAR is written to `build/libs/draconic_clarity-0.1.0.jar`.

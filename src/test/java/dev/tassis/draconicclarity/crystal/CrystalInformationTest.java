@@ -44,7 +44,7 @@ class CrystalInformationTest {
         assertTrue(english.keySet().contains("jei.draconic_clarity.crystal.limits.relay"));
         assertTrue(english.keySet().contains("jei.draconic_clarity.binder.select"));
         assertTrue(english.keySet().contains("jade.draconic_clarity.flow"));
-        assertTrue(english.keySet().contains("jade.draconic_clarity.facility.core"));
+        assertTrue(english.keySet().contains("jade.draconic_clarity.facility.warning.unlinked"));
         assertTrue(english.keySet().contains("jade.draconic_clarity.facility.charge"));
     }
 

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "patchouli"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "draconicevolution:draconium_dust"
+    }
+  ],
+  "result": {
+    "id": "patchouli:guide_book",
+    "components": {
+      "patchouli:book": "draconic_clarity:draconic_insight"
+    },
+    "count": 1
+  }
+}

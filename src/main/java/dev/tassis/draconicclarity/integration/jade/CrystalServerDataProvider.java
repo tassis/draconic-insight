@@ -45,11 +45,8 @@ public enum CrystalServerDataProvider implements IServerDataProvider<BlockAccess
         CrystalJadeData.write(data, new CrystalSnapshot(
             crystal.getEnergyStored(),
             crystal.getMaxEnergyStored(),
-            crystal.getTier(),
-            crystal.getCrystalType().getSerializedName(),
             crystal.getLinks().size(),
             crystal.maxLinks(),
-            crystal.maxLinkRange(),
             linkFlow,
             mode,
             receivers,

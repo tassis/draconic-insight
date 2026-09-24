@@ -30,6 +30,7 @@ public final class DraconicJadePlugin implements IWailaPlugin {
 
     @Override
     public void registerClient(IWailaClientRegistration registration) {
+        registration.addConfig(CrystalComponentProvider.FLOW_CONFIG, false);
         registration.registerBlockComponent(CrystalComponentProvider.INSTANCE, EnergyCrystal.class);
         registration.registerBlockComponent(FacilityComponentProvider.INSTANCE, EnergyCore.class);
         registration.registerBlockComponent(FacilityComponentProvider.INSTANCE, EnergyPylon.class);

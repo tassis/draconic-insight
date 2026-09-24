@@ -1,0 +1,24 @@
+{
+  "name": "水晶連結器",
+  "icon": "draconicevolution:crystal_binder",
+  "category": "draconic_clarity:getting_started",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:crystal_binder",
+      "title": "第一個實用訣竅",
+      "text": "連結器遵循兩步節奏：它能連接兩顆水晶，也能把無線水晶綁到機器上。$(br2)$(bold)選取：$()潛行使用第一端。$(br)$(bold)連接：$()對第二端使用。$(br)每條新連線都重複一次。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "連不上時",
+      "text": "拿連結器朝空中潛行使用即可清除已選端點；每次開工前先清除可避免誤連。$(br2)仍失敗時，量量距離並數清既有連線或無線目標。水晶額度滿了以後，再揮幾次連結器也不會答應。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:tools/crystal_binder",
+      "title": "水晶連結器"
+    }
+  ]
+}

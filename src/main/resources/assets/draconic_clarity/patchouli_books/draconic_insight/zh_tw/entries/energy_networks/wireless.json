@@ -1,0 +1,30 @@
+{
+  "name": "無線水晶",
+  "icon": "draconicevolution:basic_wireless_crystal",
+  "category": "draconic_clarity:energy_networks",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:basic_wireless_crystal",
+      "title": "一顆水晶，多台機器",
+      "text": "無線水晶可避免在每台機器表面貼滿直接輸入／輸出水晶。先用連結器把它接入網路、選取它，再依序對每台目標機器使用；水晶不必緊貼機器。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "寫在頁邊的上限",
+      "text": "空手潛行使用可切換模式。$(bold)輸入$()從目標取出；$(bold)輸出$()送入目標。$(br2)實測上限：龍礦支援 4 個目標與 4 條水晶連線；飛龍為 8 與 8；神龍為 16 與 16。範圍分別是 32、64、127 格。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/basic_wireless_crystal",
+      "recipe2": "draconicevolution:machines/wyvern_wireless_crystal",
+      "title": "無線水晶"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/draconic_wireless_crystal",
+      "title": "神龍無線水晶"
+    }
+  ]
+}

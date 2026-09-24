@@ -1,0 +1,33 @@
+{
+  "name": "Ignition Log",
+  "icon": "draconicevolution:reactor_injector",
+  "category": "draconic_clarity:reactor",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Entry One: Fuel, While Cold",
+      "text": "Load Awakened Draconium only after confirming the reactor is cold. Nuggets, ingots, or blocks work, but charging needs at least one ingot-equivalent.$(br2)Spent fuel becomes Chaos material. Begin with the minimum: core size, output, containment demand, and the possible explosion all grow with fuel mass."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Entry Two: The Long Charge",
+      "text": "Connect a strong uninterrupted OP source to the Energy Injector, press $(bold)Charge$(), and wait. At 2000°C, with saturation and containment both at least half full, $(bold)Activate$() becomes available.$(br2)The containment input must never be disconnected while the reactor is warm or running."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Entry Three: Finding Balance",
+      "text": "Energy Injectors feed the containment field; Reactor Stabilizers expose generated OP on their outer faces.$(br2)Extraction lowers saturation. Too little fills saturation and chokes generation; too much, or too little field power, invites instability. Continuously watch temperature, saturation, field strength, and conversion."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Entry Four: A Patient Shutdown",
+      "text": "While conditions are healthy, press $(bold)Shutdown$(), keep containment powered, and wait through stopping and cooling. Touch no block or fuel before the reactor is cold.$(br2)SAS can begin shutdown below 2500°C when saturation reaches 99%, but it cannot replace attention or redundant power."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Final Note, Underlined Twice",
+      "text": "If the interface reads $(bold)Explosion Imminent$(), the ordinary recovery window is already gone. Do not approach. Do not break a component. Evacuate immediately.$(br2)Practice the whole cycle with minimal fuel at a remote test site before joining any permanent power network."
+    }
+  ]
+}

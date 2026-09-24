@@ -1,0 +1,6 @@
+{
+  "name": "Energy Core Storage",
+  "description": "Construction measurements for Energy Cores, their stabilizers, and the pylons that carry power in and out.",
+  "icon": "draconicevolution:energy_core",
+  "sortnum": 20
+}

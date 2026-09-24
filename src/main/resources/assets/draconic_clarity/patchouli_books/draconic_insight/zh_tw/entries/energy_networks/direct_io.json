@@ -1,0 +1,30 @@
+{
+  "name": "直接輸入／輸出水晶",
+  "icon": "draconicevolution:basic_io_crystal",
+  "category": "draconic_clarity:energy_networks",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:basic_io_crystal",
+      "title": "必須貼著機器的水晶",
+      "text": "直接輸入／輸出水晶只理會與它接觸的機器或儲能裝置。把它貼在選定的面上，再用連結器接入網路。$(br2)空手潛行使用可切換模式。$(bold)輸入$()從鄰接方塊抽取；$(bold)輸出$()則把能量送進去。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "連線上限",
+      "text": "龍礦、飛龍與神龍階分別可連接 2、3、4 條水晶連線，範圍為 32、64、127 格。$(br2)機器毫無反應時，常見原因只是水晶貼錯了面。先確認接觸位置，再切換一次模式重新測試。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/basic_io_crystal",
+      "recipe2": "draconicevolution:machines/wyvern_io_crystal",
+      "title": "直接輸入／輸出"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/draconic_io_crystal",
+      "title": "神龍直接輸入／輸出"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "第一次成功聚合",
+  "icon": "draconicevolution:wyvern_crafting_injector",
+  "category": "draconic_clarity:fusion_crafting",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "把材料放上圓陣",
+      "text": "觸媒放進核心，其餘列出的材料則各占一個注入器。幸好，它們環繞核心的順序不影響結果。$(br2)每個參與的注入器都必須達到配方最低階級；更高階的注入器也能使用。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "圓陣甦醒的那一刻",
+      "text": "為每個注入器接上能量。核心辨識配置後，開啟介面並開始製作。注入器會先各自充能；每一個都取得應有的份量後，最終動畫才會開始。$(br2)核心介面與注入器本身都能看出程序是否正在前進。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "失敗嘗試留下的筆記",
+      "text": "依序檢查：觸媒與材料數量、多餘注入器是否清空、最低階級、是否朝向核心、視線是否暢通，以及每個注入器是否有電。$(br2)兩格看似合理，在此版本卻仍太近；真正的最短距離是三格。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:wyvern_crafting_injector",
+      "title": "進階注入器",
+      "text": "飛龍與覺醒注入器本身也是聚合製品。高階注入器能承接自身及以下階級的配方；一次換完整個圓陣，才不會漏掉一個低階注入器。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:chaotic_crafting_injector",
+      "title": "混沌注入器",
+      "text": "混沌注入器是這條鏈的最後一步，同樣來自聚合。此處以物品圖示取代不受支援、只會留下空白的聚合配方框。"
+    }
+  ]
+}

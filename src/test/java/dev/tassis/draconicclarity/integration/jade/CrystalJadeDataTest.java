@@ -12,15 +12,14 @@ class CrystalJadeDataTest {
     @Test
     void serializesAFullWirelessSnapshotWithoutLosingLongValues() {
         CrystalSnapshot snapshot = new CrystalSnapshot(
-            128_000_000L, 256_000_000L, 3, "wireless", 12, 32, 127,
-            4_294_967_294L, "input", 5, 32, 512_000L
+            128_000_000L, 256_000_000L, 12, 32, 4_294_967_294L,
+            "input", 5, 32, 512_000L
         );
         CompoundTag data = new CompoundTag();
         CrystalJadeData.write(data, snapshot);
 
         assertEquals(128_000_000L, data.getLong(CrystalJadeKeys.ENERGY));
         assertEquals(256_000_000L, data.getLong(CrystalJadeKeys.CAPACITY));
-        assertEquals(50D, data.getDouble(CrystalJadeKeys.CHARGE));
         assertEquals(4_294_967_294L, data.getLong(CrystalJadeKeys.LINK_FLOW));
         assertEquals("input", data.getString(CrystalJadeKeys.MODE));
         assertEquals(5, data.getInt(CrystalJadeKeys.RECEIVERS));
@@ -31,22 +30,22 @@ class CrystalJadeDataTest {
     void relaySnapshotOmitsModeAndWirelessFields() {
         CompoundTag data = new CompoundTag();
         CrystalJadeData.write(data, new CrystalSnapshot(
-            0, 4_000_000L, 0, "relay", 0, 8, 32, 0, "", 0, 0, 0
+            0, 4_000_000L, 0, 8, 0, "", 0, 0, 0
         ));
         assertFalse(data.contains(CrystalJadeKeys.MODE));
         assertFalse(data.contains(CrystalJadeKeys.RECEIVERS));
-        assertEquals(0D, data.getDouble(CrystalJadeKeys.CHARGE));
+        assertFalse(data.contains("Charge"));
+        assertFalse(data.contains("Range"));
     }
 
     @Test
     void rejectsImpossibleState() {
         assertThrows(IllegalArgumentException.class, () -> new CrystalSnapshot(
-            5, 4, 0, "relay", 0, 8, 32, 0, "", 0, 0, 0
+            5, 4, 0, 8, 0, "", 0, 0, 0
         ));
         assertThrows(IllegalArgumentException.class, () -> new CrystalSnapshot(
-            0, 4, 0, "relay", 9, 8, 32, 0, "", 0, 0, 0
+            0, 4, 9, 8, 0, "", 0, 0, 0
         ));
-        assertTrue(new CrystalSnapshot(2, 4, 0, "relay", 0, 8, 32, 0, "", 0, 0, 0)
-            .chargePercent() == 50D);
+        assertFalse(new CrystalSnapshot(2, 4, 0, 8, 0, "", 0, 0, 0).hasReceivers());
     }
 }
