@@ -17,7 +17,7 @@ The technical mod ID and resource namespace are `draconic_insight`; the Java pac
 
 ## Build
 
-GitHub Actions runs the full test and build pipeline for every push and pull request, then uploads the `0.1.0` JAR as a workflow artifact.
+GitHub Actions runs the full test and build pipeline for every push and pull request, then uploads a JAR whose name identifies the mod loader, Minecraft version, and mod version.
 
 The local Docker build uses the same Gradle and Java versions as CI:
 
@@ -25,7 +25,7 @@ The local Docker build uses the same Gradle and Java versions as CI:
 docker compose run --rm gradle gradle --no-daemon clean test build
 ```
 
-The output JAR is written to `build/libs/draconic_insight-0.1.0.jar`.
+The output JAR is written to `build/libs/draconic_insight-neoforge-1.21.1-0.1.0.jar`.
 
 ## Releases
 

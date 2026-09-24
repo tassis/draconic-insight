@@ -23,6 +23,7 @@ jobs:
 
     outputs:
       version: ${{ steps.version.outputs.value }}
+      artifact_name: ${{ steps.version.outputs.artifact_name }}
 
     steps:
       - name: Check out repository
@@ -46,8 +47,23 @@ jobs:
         shell: bash
         run: |
           version="$(sed -n 's/^mod_version=//p' gradle.properties)"
+          minecraft_version="$(sed -n 's/^minecraft_version=//p' gradle.properties)"
+          mod_loader="$(sed -n 's/^mod_loader=//p' gradle.properties)"
+          mod_id="$(sed -n 's/^mod_id=//p' gradle.properties)"
           if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo "mod_version must be a stable semantic version, got: $version" >&2
+            exit 1
+          fi
+          if [[ ! "$minecraft_version" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+            echo "minecraft_version must be a numeric Minecraft version, got: $minecraft_version" >&2
+            exit 1
+          fi
+          if [[ ! "$mod_loader" =~ ^[a-z0-9-]+$ ]]; then
+            echo "mod_loader must contain only lowercase letters, numbers, and hyphens, got: $mod_loader" >&2
+            exit 1
+          fi
+          if [[ ! "$mod_id" =~ ^[a-z][a-z0-9_]*$ ]]; then
+            echo "mod_id is invalid: $mod_id" >&2
             exit 1
           fi
           if [[ "$GITHUB_REF_TYPE" == "tag" && "$GITHUB_REF_NAME" != "v$version" ]]; then
@@ -55,6 +71,7 @@ jobs:
             exit 1
           fi
           echo "value=$version" >> "$GITHUB_OUTPUT"
+          echo "artifact_name=${mod_id}-${mod_loader}-${minecraft_version}-${version}" >> "$GITHUB_OUTPUT"
 
       - name: Test and build
         run: gradle --no-daemon clean test build
@@ -70,8 +87,8 @@ jobs:
       - name: Upload Draconic Insight JAR
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: draconic-insight-${{ steps.version.outputs.value }}
-          path: build/libs/draconic_insight-${{ steps.version.outputs.value }}.jar
+          name: ${{ steps.version.outputs.artifact_name }}
+          path: build/libs/${{ steps.version.outputs.artifact_name }}.jar
           if-no-files-found: error
 
   release:
@@ -87,16 +104,17 @@ jobs:
       - name: Download release JAR
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
-          name: draconic-insight-${{ needs.build.outputs.version }}
+          name: ${{ needs.build.outputs.artifact_name }}
           path: dist
 
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
           VERSION: ${{ needs.build.outputs.version }}
+          ARTIFACT_NAME: ${{ needs.build.outputs.artifact_name }}
         shell: bash
         run: |
-          jar="dist/draconic_insight-${VERSION}.jar"
+          jar="dist/${ARTIFACT_NAME}.jar"
           test -f "$jar"
           gh release create "$GITHUB_REF_NAME" "$jar" \
             --repo "$GITHUB_REPOSITORY" \
