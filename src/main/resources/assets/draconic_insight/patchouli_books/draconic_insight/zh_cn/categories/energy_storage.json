@@ -1,0 +1,6 @@
+{
+  "name": "能量核心存储",
+  "description": "既然龙矿能够存储能量，或许能利用这种性质制造出大型储能体。不过能量聚集后的波动非常剧烈，还得用稳定器创建稳定力场才行。",
+  "icon": "draconicevolution:energy_core",
+  "sortnum": 20
+}

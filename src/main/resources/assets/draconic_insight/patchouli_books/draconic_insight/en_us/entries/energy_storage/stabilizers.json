@@ -7,11 +7,11 @@
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:energy_core_stabilizer",
-      "text": "An uneven arrangement is invalid. Place exactly four stabilizer centers in the four directions around one shared axis, each 1–15 blocks from the controller and outside the shell.$(br2)Tiers 1–4 use one block at each point. Tiers 5–8 require a full nine-block 3×3 plane at every point."
+      "text": "The stabilizers must be placed with fourfold symmetry along the Energy Core's axes. If any side is missing, the field may become unstable and allow energy to dissipate. A stabilizer may be no more than 15 blocks from the Energy Core."
     },
     {
       "type": "patchouli:multiblock",
-      "name": "Tier 1–4 Stabilizers",
+      "name": "Tier 1–4 Layout",
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
@@ -24,11 +24,11 @@
         "offset": [4, 0, 4],
         "symmetrical": true
       },
-      "text": "Top view: four standalone stabilizers, each four blocks from the controller. Purple marks the real Energy Core controller; do not place glass. All four stabilizers must be on this same horizontal plane."
+      "text": "The four stabilizers are each four blocks from the controller and lie on the same horizontal plane. Purple is only a marker for the controller, because the Core is too difficult to draw."
     },
     {
       "type": "patchouli:multiblock",
-      "name": "Advanced Stabilizer",
+      "name": "Tier 5–8 Structure",
       "enable_visualize": true,
       "multiblock": {
         "pattern": [
@@ -40,7 +40,7 @@
         "symmetrical": true,
         "offset": [1, 0, 1]
       },
-      "text": "For tier 5 and above, surround each stabilizer's center with eight more blocks to form a complete 3×3 plane. Its flat face must point toward the Energy Core; four planes require 36 stabilizer blocks total."
+      "text": "At tiers 5–8, each stabilizer must expand into a 3×3 plane facing the Core. All four sides require 36 stabilizer blocks in total."
     },
     {
       "type": "patchouli:crafting",

@@ -1,0 +1,18 @@
+{
+  "name": "龙矿的初步研究",
+  "icon": "draconicevolution:draconium_dust",
+  "category": "draconic_insight:getting_started",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "特殊的性质",
+      "text": "初步来看，$(item)龙矿$()不只能够传递共振，还能够存储能量。如果能通过加工制成设备或工具，应该会有很高的利用价值。$(br2)不过还得先想办法让共振的传递稳定，再来想想后续的应用。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "不安定的能量",
+      "text": "能量的存储与传递在不同环境下会有许多浮动，只记录观测仪的数值没什么用，必须详细检查能量是否真的有流动。$(br2)这种能量似乎很容易转换成电力，或输送到其他兼容的系统，需要再做测试。"
+    }
+  ]
+}

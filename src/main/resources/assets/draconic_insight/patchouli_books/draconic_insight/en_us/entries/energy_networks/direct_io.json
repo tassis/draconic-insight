@@ -1,5 +1,5 @@
 {
-  "name": "Direct I/O Crystals",
+  "name": "Resonant Energy",
   "icon": "draconicevolution:basic_io_crystal",
   "category": "draconic_insight:energy_networks",
   "sortnum": 10,
@@ -7,13 +7,13 @@
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:basic_io_crystal",
-      "title": "The Crystal That Touches",
-      "text": "A Direct I/O crystal only listens to the machine or store touching it. Place it against the chosen face, then Binder-link it into the network.$(br2)Sneak-use it empty-handed to switch mode. $(bold)Input$() pulls from the neighbor; $(bold)Output$() sends to it."
+      "title": "Contact Matters",
+      "text": "A crystal produced by the first purification seems able to exchange energy only with a machine touching it directly. If it is placed on the wrong face, no energy flows even when the link itself is valid.$(br2)Sneak-use it empty-handed to switch direction: $(bold)Input$() draws energy from the adjacent equipment, while $(bold)Output$() sends energy into it."
     },
     {
       "type": "patchouli:text",
-      "title": "Link Limits",
-      "text": "Draconium and Wyvern Direct I/O crystals allow 2 and 3 crystal links, with ranges of 32 and 64 blocks. The measurements for the higher-tier sample are no longer legible.$(br2)An idle machine often means the crystal touches the wrong face. Check contact, then switch mode once and test again."
+      "title": "Resonance Limits",
+      "text": "The distance, number of links, and rate of energy flow a crystal can sustain all vary with the properties of its material.$(br2)So far, Draconium and Wyvern crystals have supported 2 and 3 crystal links at distances of 32 and 64 blocks. The observations for the higher-tier sample...$(br2)(The remainder of the record is damaged.)"
     },
     {
       "type": "patchouli:crafting",

@@ -1,33 +1,33 @@
 {
-  "name": "Ignition Log",
+  "name": "Reactor Operation",
   "icon": "draconicevolution:reactor_injector",
   "category": "draconic_insight:reactor",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "Entry One: Fuel, While Cold",
-      "text": "Load Awakened Draconium only after confirming the reactor is cold. Nuggets, ingots, or blocks work, but charging needs at least one ingot-equivalent.$(br2)Spent fuel becomes Chaos material. Begin with the minimum: core size, output, containment demand, and the possible explosion all grow with fuel mass."
+      "title": "Less Fuel Is Better",
+      "text": "Awakened Draconium can only be loaded after the reactor has cooled completely. Nuggets, ingots, and blocks all work as fuel, but charging requires at least one ingot-equivalent.$(br2)Spent fuel seems to leave Chaos material behind. More fuel means a larger Core, greater output, higher containment demand, and a wider explosion. I will use the minimum amount for my first test. Greed is not an option."
     },
     {
       "type": "patchouli:text",
-      "title": "Entry Two: The Long Charge",
-      "text": "Connect a strong uninterrupted OP source to the Energy Injector, press $(bold)Charge$(), and wait. At 2000°C, with saturation and containment both at least half full, $(bold)Activate$() becomes available.$(br2)The containment input must never be disconnected while the reactor is warm or running."
+      "title": "Keep Waiting",
+      "text": "The Energy Injector needs a stable, uninterrupted OP supply. After charging begins, the reactor will not permit activation until the temperature reaches 2000°C and both saturation and containment exceed 50%.$(br2)As long as the Core still has any heat, the containment field must never lose power. This remains true during shutdown."
     },
     {
       "type": "patchouli:text",
-      "title": "Entry Three: Finding Balance",
-      "text": "Energy Injectors feed the containment field; Reactor Stabilizers expose generated OP on their outer faces.$(br2)Extraction lowers saturation. Too little fills saturation and chokes generation; too much, or too little field power, invites instability. Continuously watch temperature, saturation, field strength, and conversion."
+      "title": "Losing Balance",
+      "text": "The Energy Injector maintains the containment field, while the outer faces of the Stabilizers output OP. The more energy is extracted, the faster saturation falls.$(br2)Extract too little and saturation fills up, suppressing generation. Extract too much, or provide too little containment power, and the Core begins to destabilize. Temperature, saturation, containment, conversion... not one of them can be ignored."
     },
     {
       "type": "patchouli:text",
-      "title": "Entry Four: A Patient Shutdown",
-      "text": "While conditions are healthy, press $(bold)Shutdown$(), keep containment powered, and wait through stopping and cooling. Touch no block or fuel before the reactor is cold.$(br2)SAS can begin shutdown below 2500°C when saturation reaches 99%, but it cannot replace attention or redundant power."
+      "title": "Shutdown Isn't Over",
+      "text": "Shut the reactor down while its readings are still stable, then maintain the containment field until the Core has stopped and cooled completely. Do not touch any component or fuel before then.$(br2)SAS can begin shutdown below 2500°C when saturation reaches 99%, but that does not remove the need for monitoring and backup power."
     },
     {
       "type": "patchouli:text",
-      "title": "Final Note, Underlined Twice",
-      "text": "If the interface reads $(bold)Explosion Imminent$(), the ordinary recovery window is already gone. Do not approach. Do not break a component. Evacuate immediately.$(br2)Practice the whole cycle with minimal fuel at a remote test site before joining any permanent power network."
+      "title": "See This? Run.",
+      "text": "If the reactor displays $(bold)Explosion Imminent$(), the chance for a normal recovery has already passed. Do not approach it. Do not break any component. Leave immediately.$(br2)Before connecting it to a permanent power grid, complete an entire charge, operation, shutdown, and cooling cycle remotely with the minimum fuel. Do not use the base as a test site."
     }
   ]
 }

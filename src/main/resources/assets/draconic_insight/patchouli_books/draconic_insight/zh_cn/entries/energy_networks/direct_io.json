@@ -1,0 +1,29 @@
+{
+  "name": "共振的能量传递",
+  "icon": "draconicevolution:basic_io_crystal",
+  "category": "draconic_insight:energy_networks",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:basic_io_crystal",
+      "title": "接触面似乎很重要",
+      "text": "初次提纯制成的水晶似乎只会与紧贴着它的机器交换能量。若放错面，就算连接本身没有问题，能量还是完全不会流动。$(br2)空手潜行使用能切换方向：$(bold)输入$()会从相邻设备抽取能量，$(bold)输出$()则把能量送进去。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "共振的传递并非毫无限制",
+      "text": "依据材料特性的不同，每颗水晶能够引发共振的距离、数量与能量流动速度都不相同。$(br2)目前量到：龙矿与飞龙阶分别能创建 2、3 条水晶连接，距离则是 32、64 格。更高端样本的观测数据……$(br2)（后面的记录已经破损。）"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/basic_io_crystal",
+      "recipe2": "draconicevolution:machines/wyvern_io_crystal"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:draconic_io_crystal",
+      "text": "这种水晶似乎还能继续提纯。需要的材料是……$(br2)（后面的页面有许多破损。）"
+    }
+  ]
+}

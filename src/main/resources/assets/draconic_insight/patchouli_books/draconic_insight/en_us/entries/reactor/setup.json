@@ -1,5 +1,5 @@
 {
-  "name": "A Reactor Far from Home",
+  "name": "Reactor Structure",
   "icon": "draconicevolution:reactor_core",
   "category": "draconic_insight:reactor",
   "sortnum": 0,
@@ -7,13 +7,13 @@
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:reactor_core",
-      "title": "The First Rule Is Distance",
-      "text": "$(bold)Warning:$() Choose a place whose loss is survivable. A failed Draconic Reactor can erase a vast area, so keep it far from bases, chunk borders, irreplaceable terrain, and other reactors. Keep the whole site loaded and give containment its own redundant power."
+      "title": "Farther Away",
+      "text": "$(bold)Warning:$() If this experiment fails, there may be nothing left nearby. I will not build the reactor near a base, valuable terrain, or another reactor; the farther away, the better.$(br2)The Core, Stabilizers, Injector, and power system must be kept together, and no part of them can stop while the reactor is running. The containment field also needs its own backup power supply."
     },
     {
       "type": "patchouli:text",
-      "title": "Six Clear Lines from the Core",
-      "text": "The measured rule is simple: the Core scans six cardinal directions. A component must face it across clear air at a distance of 4–7 blocks; the first solid thing on that line must be the intended component.$(br2)This example puts four stabilizers in a horizontal plane, leaving the vertical axis for one or two Energy Injectors."
+      "title": "Six Axes Only",
+      "text": "I tried moving a Stabilizer slightly aside, but the Core refused to recognize it. Stabilizers and Energy Injectors apparently must lie on the six cardinal axes, 4–7 blocks away, facing the Core with nothing but air between them.$(br2)The easiest arrangement to inspect places four Stabilizers on the horizontal plane and reserves the vertical axis for the Energy Injector. At least this makes incorrect connections less likely."
     },
     {
       "type": "patchouli:multiblock",
@@ -30,11 +30,11 @@
         "offset": [4, 0, 4],
         "symmetrical": true
       },
-      "text": "Top-view sketch at minimum distance. Purple only marks the real Reactor Core—do not place glass. Four stabilizers stand four blocks away and face inward."
+      "text": "This trial uses the minimum distance of four blocks. All four Stabilizers face inward. Purple only marks the Core's position; the actual Reactor Core belongs there."
     },
     {
       "type": "patchouli:multiblock",
-      "name": "Vertical Injector Axis",
+      "name": "Top Injector",
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
@@ -51,19 +51,19 @@
         },
         "offset": [0, 1, 0]
       },
-      "text": "For the horizontal stabilizer layout above, place an Energy Injector 4–7 blocks directly above the Core and face it downward. Feed containment power into its outer side; a second injector may be placed below. The entire arrangement may be rotated together."
+      "text": "With the horizontal plane occupied by Stabilizers, the Energy Injector has to sit 4–7 blocks directly above the Core, facing downward, with containment energy supplied from its outer side. A second Injector can also be placed below the Core. The entire arrangement should rotate together."
     },
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:reactor_core",
       "title": "Core and Stabilizers",
-      "text": "The Reactor Core and its Stabilizers are late Fusion products. Build all five before choosing the site; exactly four stabilizers are required for one reactor."
+      "text": "Both the Reactor Core and its Stabilizers require late-stage Fusion Crafting. One reactor uses exactly one Core and four Stabilizers. It is best to prepare all five before leaving; there is no reason to run back for one missing part."
     },
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:reactor_injector",
-      "title": "Energy Injector",
-      "text": "The Energy Injector is also made by Fusion. One is sufficient; a second may stand opposite it. Keep any spare away from the reactor site rather than storing every critical part beside the hazard."
+      "title": "Containment Lifeline",
+      "text": "The Energy Injector also requires Fusion Crafting. One is enough to operate the reactor, though another may be added on the opposite side. Keep at least one spare far from the reactor site. If anything happens, a spare left nearby will only disappear with everything else."
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "name": "模块化装备",
+  "icon": "draconicevolution:wyvern_pickaxe",
+  "category": "draconic_insight:equipment",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "模块化装备",
+      "text": "龙矿制成的工具本身不具备特殊能力，电容、工具、弓、权杖与胸甲都只是安装模块的容器。装备本身的阶级会影响内部空间与能够安装的模块，实际能力则取决于放入的模块。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:wyvern_capacitor",
+      "title": "能量供应",
+      "text": "模块化装备必须以能量维持运作，因此需要先保留安装能量模块的空间。电容也必须安装能量模块并接收外部 OP，才能替其他物品充能。其余空间则可以用于伤害、挖掘范围、速度、护盾或飞行等功能。"
+    }
+  ]
+}

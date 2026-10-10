@@ -1,6 +1,6 @@
 {
   "name": "Energy Networks",
-  "description": "Observed behavior and measured limits for relay, direct, and wireless crystal networks.",
+  "description": "A crystal produced by accident during an experiment can somehow move energy over long distances through resonance. Different materials support different ranges, capacities, and numbers of simultaneous resonances. I have to write all of this down.",
   "icon": "draconicevolution:basic_relay_crystal",
   "sortnum": 10
 }

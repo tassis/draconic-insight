@@ -7,8 +7,8 @@
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:basic_relay_crystal",
-      "title": "What the Relay Was Doing",
-      "text": "Changing flow is normal, not a fault. A relay balances connected stores by charge percentage, so it has no single fixed OP/t rating; flow naturally changes with charge and free space at both ends."
+      "title": "Relaying Resonance",
+      "text": "A crystal left behind by a failed purification seems able to balance energy automatically. From what I can observe, it adjusts its resonance frequency according to the proportion of energy at each node. Could this be used to extend the distance over which resonance can be transmitted?"
     },
     {
       "type": "patchouli:crafting",
@@ -18,8 +18,8 @@
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:draconic_relay_crystal",
-      "title": "Draconic Relay",
-      "text": "The Draconic Relay is a Fusion upgrade. The surviving notes do not preserve its complete material arrangement."
+      "title": "Advanced Relays",
+      "text": "A Draconic Relay Crystal must be made through Fusion Crafting. The required materials are...$(br2)(Many parts of the following pages are damaged.)"
     }
   ]
 }

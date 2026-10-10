@@ -1,29 +1,29 @@
 {
-  "name": "Fusion Crafting Method",
+  "name": "Fusion Crafting",
   "icon": "draconicevolution:wyvern_crafting_injector",
   "category": "draconic_insight:fusion_crafting",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "Fusion Crafting Method",
+      "title": "Fusion Crafting",
       "text": "Place the central material in the Crafting Core and the remaining materials on the Energy Injectors, then supply the injectors with energy. Once they are fully charged, the material at the center is stimulated and begins to change. The mechanism remains impossible to explain; perhaps science really does end in mysticism."
     },
     {
       "type": "patchouli:text",
-      "title": "Notes from Failed Attempts",
+      "title": "Failed Attempts",
       "text": "Check in order: catalyst and ingredient counts; empty extra injectors; minimum injector tier; inward facing; clear sight lines; and energy at every injector.$(br2)Two blocks away still looks plausible, but it is too close in this version. Three blocks is the true minimum."
     },
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:wyvern_crafting_injector",
-      "title": "Injector Tier Is Critical",
+      "title": "Injector Tiers",
       "text": "Higher-tier injectors must also be made through Fusion. If the injector tiers do not match, their unequal rates cause the process to fail, and the safety mechanism automatically prevents that operation. All cores and injectors must therefore be replaced at the same time."
     },
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:chaotic_crafting_injector",
-      "title": "Higher-Tier Injectors",
+      "title": "Advanced Injectors",
       "text": "According to the records, higher-tier injectors can process more types of items and operate more efficiently. The required materials are…$(br2)(Many parts of the following pages are damaged…)"
     }
   ]

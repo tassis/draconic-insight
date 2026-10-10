@@ -1,6 +1,6 @@
 {
   "name": "Energy Core Storage",
-  "description": "Construction measurements for Energy Cores, their stabilizers, and the pylons that carry power in and out.",
+  "description": "Since Draconium can store energy, perhaps that property can be used to create a large energy store. Energy becomes extremely unstable when gathered in such quantities, however, so stabilizers will be needed to form a stable field.",
   "icon": "draconicevolution:energy_core",
   "sortnum": 20
 }

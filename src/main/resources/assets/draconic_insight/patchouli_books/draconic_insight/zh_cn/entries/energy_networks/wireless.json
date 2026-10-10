@@ -1,0 +1,29 @@
+{
+  "name": "无线水晶",
+  "icon": "draconicevolution:basic_wireless_crystal",
+  "category": "draconic_insight:energy_networks",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:basic_wireless_crystal",
+      "title": "明明已经断电了？",
+      "text": "在一次不小心踢到电线的意外后，我发现本该断电的设备竟然还在正常运作……这不可能啊？只能怀疑是这颗水晶造成的。$(br2)没想到加入改性剂后再提纯，竟能让部分机器设备成为能量传输的对象。可是，机器上并没有观测到与水晶相同的共振现象……到底是为什么呢？"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "要怎么控制它？",
+      "text": "使用时，先用连接器把无线水晶接入网络，再选取水晶并对目标设备使用，两者不必接触。$(br2)空手潜行使用水晶能切换方向；$(bold)输入$()会从目标设备取出能量，$(bold)输出$()则把能量送过去。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/basic_wireless_crystal",
+      "recipe2": "draconicevolution:machines/wyvern_wireless_crystal"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:draconic_wireless_crystal",
+      "text": "这种水晶似乎还能继续提纯。需要的材料是……$(br2)（后面的页面有许多破损。）"
+    }
+  ]
+}

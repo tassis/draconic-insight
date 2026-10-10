@@ -42,19 +42,23 @@ class HandbookResourceTest {
     );
 
     @Test
-    void englishAndTraditionalChineseHaveMatchingReadableContent() throws IOException {
+    void allLocalesHaveMatchingReadableContent() throws IOException {
         for (String category : CATEGORIES) {
             JsonObject english = read(ROOT + "en_us/categories/" + category + ".json");
-            JsonObject traditionalChinese = read(ROOT + "zh_tw/categories/" + category + ".json");
-            assertEquals(english.keySet(), traditionalChinese.keySet(), category);
+            for (String locale : List.of("zh_tw", "zh_cn")) {
+                JsonObject localized = read(ROOT + locale + "/categories/" + category + ".json");
+                assertEquals(english.keySet(), localized.keySet(), locale + ": " + category);
+            }
             assertTrue(english.has("name") && english.has("description") && english.has("icon"), category);
         }
 
         for (String entry : ENTRIES) {
             JsonObject english = read(ROOT + "en_us/entries/" + entry + ".json");
-            JsonObject traditionalChinese = read(ROOT + "zh_tw/entries/" + entry + ".json");
-            assertEquals(english.get("category"), traditionalChinese.get("category"), entry);
-            assertEquals(pageTypes(english), pageTypes(traditionalChinese), entry);
+            for (String locale : List.of("zh_tw", "zh_cn")) {
+                JsonObject localized = read(ROOT + locale + "/entries/" + entry + ".json");
+                assertEquals(english.get("category"), localized.get("category"), locale + ": " + entry);
+                assertEquals(pageTypes(english), pageTypes(localized), locale + ": " + entry);
+            }
             assertTrue(english.getAsJsonArray("pages").size() > 0, entry);
         }
     }
@@ -64,7 +68,7 @@ class HandbookResourceTest {
         List<String> order = List.of(
             "getting_started", "energy_networks", "energy_storage", "equipment", "reactor", "fusion_crafting"
         );
-        for (String locale : List.of("en_us", "zh_tw")) {
+        for (String locale : List.of("en_us", "zh_tw", "zh_cn")) {
             for (int index = 0; index < order.size(); index++) {
                 JsonObject category = read(ROOT + locale + "/categories/" + order.get(index) + ".json");
                 assertEquals(index * 10, category.get("sortnum").getAsInt(), locale + ": " + order.get(index));
@@ -116,7 +120,7 @@ class HandbookResourceTest {
         }
 
         JsonObject fusion = read(ROOT + "en_us/entries/fusion_crafting/setup.json");
-        JsonObject fusionMapping = pageNamed(fusion.getAsJsonArray("pages"), "Simplest Basic Layout")
+        JsonObject fusionMapping = pageNamed(fusion.getAsJsonArray("pages"), "Basic Layout")
             .getAsJsonObject("multiblock").getAsJsonObject("mapping");
         assertEquals("minecraft:purple_stained_glass", fusionMapping.get("C").getAsString());
     }
@@ -124,31 +128,36 @@ class HandbookResourceTest {
     @Test
     void earlyEnergyCoreDiagramsMatchLockedStructures() throws IOException {
         JsonArray pages = read(ROOT + "en_us/entries/energy_storage/energy_core.json").getAsJsonArray("pages");
-        assertSymbolCounts(pageNamed(pages, "Tier 1 Core"), Map.of('X', 1));
-        assertSymbolCounts(pageNamed(pages, "Tier 2 Core"), Map.of('D', 6, 'X', 1));
-        assertSymbolCounts(pageNamed(pages, "Tier 3 Core"), Map.of('D', 26, 'X', 1));
-        assertSymbolCounts(pageNamed(pages, "Tier 4 Core"), Map.of('D', 54, 'R', 26, 'X', 1));
+        assertSymbolCounts(pageNamed(pages, "Only the Controller"), Map.of('X', 1));
+        assertSymbolCounts(pageNamed(pages, "Six-Block Shell"), Map.of('D', 6, 'X', 1));
+        assertSymbolCounts(pageNamed(pages, "Solid Draconium Cube"), Map.of('D', 26, 'X', 1));
+        assertSymbolCounts(pageNamed(pages, "Redstone Interior"), Map.of('D', 54, 'R', 26, 'X', 1));
     }
 
     @Test
     void specialRenderedControllersUseSafeDiagramMarkers() throws IOException {
         JsonArray energyPages = read(ROOT + "en_us/entries/energy_storage/energy_core.json").getAsJsonArray("pages");
-        for (int tier = 1; tier <= 4; tier++) {
-            assertSafeProxy(pageNamed(energyPages, "Tier " + tier + " Core"), "X");
+        for (String name : List.of(
+            "Only the Controller",
+            "Six-Block Shell",
+            "Solid Draconium Cube",
+            "Redstone Interior"
+        )) {
+            assertSafeProxy(pageNamed(energyPages, name), "X");
         }
 
         JsonArray fusionPages = read(ROOT + "en_us/entries/fusion_crafting/setup.json").getAsJsonArray("pages");
-        assertSafeProxy(pageNamed(fusionPages, "Simplest Basic Layout"), "C");
+        assertSafeProxy(pageNamed(fusionPages, "Basic Layout"), "C");
 
         JsonArray reactorPages = read(ROOT + "en_us/entries/reactor/setup.json").getAsJsonArray("pages");
         assertSafeProxy(pageNamed(reactorPages, "Four Stabilizers"), "C");
-        assertSafeProxy(pageNamed(reactorPages, "Vertical Injector Axis"), "C");
-        assertVerticalReactorInjectorAxis(pageNamed(reactorPages, "Vertical Injector Axis"));
+        assertSafeProxy(pageNamed(reactorPages, "Top Injector"), "C");
+        assertVerticalReactorInjectorAxis(pageNamed(reactorPages, "Top Injector"));
     }
 
     @Test
     void patchouliCraftingPagesNeverReferenceFusionRecipes() throws IOException {
-        for (String locale : List.of("en_us", "zh_tw")) {
+        for (String locale : List.of("en_us", "zh_tw", "zh_cn")) {
             for (String entry : ENTRIES) {
                 JsonArray pages = read(ROOT + locale + "/entries/" + entry + ".json").getAsJsonArray("pages");
                 for (var pageElement : pages) {
@@ -163,7 +172,7 @@ class HandbookResourceTest {
 
     @Test
     void handbookDoesNotAssumeOptionalViewerMods() throws IOException {
-        for (String locale : List.of("en_us", "zh_tw")) {
+        for (String locale : List.of("en_us", "zh_tw", "zh_cn")) {
             for (String category : CATEGORIES) {
                 assertNoViewerNames(read(ROOT + locale + "/categories/" + category + ".json"), category);
             }
@@ -178,11 +187,9 @@ class HandbookResourceTest {
         JsonArray english = read(ROOT + "en_us/entries/energy_storage/energy_core.json").getAsJsonArray("pages");
         String instructions = narrativeText(english);
         for (String required : List.of(
-            "Tier 1 needs no shell",
-            "carry every required shell block",
-            "places the shell automatically",
-            "Assemble Core builds only",
-            "Use $(bold)Build Guide$() only",
+            "four stabilizers",
+            "automatically places",
+            "only handles the shell",
             "Core Invalid",
             "Stabilizers Invalid"
         )) {
@@ -191,40 +198,42 @@ class HandbookResourceTest {
 
         JsonArray stabilizerEntry = read(ROOT + "en_us/entries/energy_storage/stabilizers.json")
             .getAsJsonArray("pages");
-        assertTrue(narrativeText(stabilizerEntry).contains("1–15 blocks"));
-        JsonObject stabilizers = pageNamed(stabilizerEntry, "Tier 1–4 Stabilizers");
+        assertTrue(narrativeText(stabilizerEntry).contains("no more than 15 blocks"));
+        JsonObject stabilizers = pageNamed(stabilizerEntry, "Tier 1–4 Layout");
         assertSymbolCounts(stabilizers, Map.of('S', 4, 'X', 1));
         assertSafeProxy(stabilizers, "X");
 
-        JsonObject advancedStabilizer = pageNamed(stabilizerEntry, "Advanced Stabilizer");
+        JsonObject advancedStabilizer = pageNamed(stabilizerEntry, "Tier 5–8 Structure");
         assertSymbolCounts(advancedStabilizer, Map.of('S', 9));
-        assertTrue(narrativeText(stabilizerEntry).contains("36 stabilizer blocks total"));
+        assertTrue(narrativeText(stabilizerEntry).contains("36 stabilizer blocks in total"));
 
         JsonArray pylonEntry = read(ROOT + "en_us/entries/energy_storage/energy_pylon.json")
             .getAsJsonArray("pages");
         assertTrue(narrativeText(pylonEntry).contains("not the controller"));
-        assertSymbolCounts(pageNamed(pylonEntry, "Input/Output Port Structure"), Map.of('P', 1, 'G', 1));
+        assertSymbolCounts(pageNamed(pylonEntry, "Input/Output Port"), Map.of('P', 1, 'G', 1));
     }
 
     @Test
-    void handbookUsesFirstPersonChineseJournalAndRestrainedEnglishNarration() throws IOException {
+    void handbookLandingPagesPreserveTheResearchJournalVoice() throws IOException {
         JsonObject traditionalChineseLang = read("assets/draconic_insight/lang/zh_tw.json");
         assertEquals("龍之洞察", traditionalChineseLang.get("book.draconic_insight.name").getAsString());
         String landing = traditionalChineseLang.get("book.draconic_insight.landing").getAsString();
         assertTrue(landing.contains("我想在這裡好好記錄研究結果"));
         assertTrue(landing.contains("姑且先叫作「龍礦」吧"));
 
-        for (String category : CATEGORIES) {
-            assertEnglishAvoidsFirstPerson(read(ROOT + "en_us/categories/" + category + ".json"), category);
-        }
-        for (String entry : ENTRIES) {
-            assertEnglishAvoidsFirstPerson(read(ROOT + "en_us/entries/" + entry + ".json"), entry);
-        }
+        JsonObject simplifiedChineseLang = read("assets/draconic_insight/lang/zh_cn.json");
+        assertEquals("龙之洞察", simplifiedChineseLang.get("book.draconic_insight.name").getAsString());
+        assertTrue(simplifiedChineseLang.get("book.draconic_insight.landing").getAsString()
+            .contains("我想在这里好好记录研究结果"));
+
+        JsonObject englishLang = read("assets/draconic_insight/lang/en_us.json");
+        assertTrue(englishLang.get("book.draconic_insight.landing").getAsString()
+            .contains("I want to keep a careful record of my research"));
     }
 
     @Test
     void handbookReadsAsStandaloneModDocumentation() throws IOException {
-        for (String locale : List.of("en_us", "zh_tw")) {
+        for (String locale : List.of("en_us", "zh_tw", "zh_cn")) {
             for (String category : CATEGORIES) {
                 assertNoDeploymentFraming(read(ROOT + locale + "/categories/" + category + ".json"), locale, category);
             }
@@ -253,27 +262,11 @@ class HandbookResourceTest {
         return text.toString();
     }
 
-    private void assertEnglishAvoidsFirstPerson(JsonElement element, String path) {
-        if (element.isJsonArray()) {
-            element.getAsJsonArray().forEach(child -> assertEnglishAvoidsFirstPerson(child, path));
-            return;
-        }
-        if (!element.isJsonObject()) return;
-
-        JsonObject object = element.getAsJsonObject();
-        for (String key : List.of("name", "title", "text", "description")) {
-            if (!object.has(key) || !object.get(key).isJsonPrimitive()) continue;
-            String text = object.get(key).getAsString();
-            assertFalse(text.matches("(?is).*(?:^|\\s)(?:i|my|me|mine)(?:\\s|[.,:;!?—]|$).*"), path + ": " + text);
-        }
-        object.entrySet().forEach(entry -> assertEnglishAvoidsFirstPerson(entry.getValue(), path));
-    }
-
     private void assertNoDeploymentFraming(JsonElement element, String locale, String path) {
         if (element.isJsonPrimitive() && element.getAsJsonPrimitive().isString()) {
             String text = element.getAsString();
-            if ("zh_tw".equals(locale)) {
-                assertFalse(text.matches(".*(?:整合包|安裝環境|實際安裝|目前安裝).*"), path + ": " + text);
+            if (locale.startsWith("zh_")) {
+                assertFalse(text.matches(".*(?:整合包|整合包|安裝環境|安装环境|實際安裝|实际安装|目前安裝|目前安装).*"), path + ": " + text);
             } else {
                 assertFalse(text.matches("(?is).*\\b(?:modpack|pack|installation|installed)\\b.*"), path + ": " + text);
             }

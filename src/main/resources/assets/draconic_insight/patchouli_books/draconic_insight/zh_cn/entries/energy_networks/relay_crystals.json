@@ -1,0 +1,25 @@
+{
+  "name": "中继水晶",
+  "icon": "draconicevolution:basic_relay_crystal",
+  "category": "draconic_insight:energy_networks",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:basic_relay_crystal",
+      "title": "共振的中继传递",
+      "text": "一次提纯失败后得到的水晶，似乎具有自动平衡能量的特性。根据观测，它会依照节点间的能量比例自行调整共振频率。能不能利用这点延长共振传递的距离呢？"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/basic_relay_crystal",
+      "recipe2": "draconicevolution:machines/wyvern_relay_crystal"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:draconic_relay_crystal",
+      "title": "更高端的中继水晶",
+      "text": "神龙中继水晶必须通过聚能合成。需要的材料是……$(br2)（后面的页面有许多破损。）"
+    }
+  ]
+}

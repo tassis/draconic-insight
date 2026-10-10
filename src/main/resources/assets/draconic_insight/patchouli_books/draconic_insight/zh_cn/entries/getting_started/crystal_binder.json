@@ -1,0 +1,23 @@
+{
+  "name": "水晶连接器",
+  "icon": "draconicevolution:crystal_binder",
+  "category": "draconic_insight:getting_started",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:crystal_binder",
+      "title": "放大共振",
+      "text": "我找到利用共振的方法了。将龙矿中的物质提纯并制成水晶，似乎能放大共振效果；更有趣的是，水晶还能调整成只接受特定频段的共振。通过连接器，可以快速同步两颗水晶之间的频谱。$(br2)$(bold)同步频谱：$()手持连接器，对第一端潜行使用。$(br)$(bold)创建链接：$()再对第二端使用。$(br)每创建一条新连接，都得重新同步第一端。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "同步失败时",
+      "text": "如果选错第一端，手持连接器朝空中潜行使用，就能清除它记住的频谱。每次重新接线前先做一次，也比较不容易误连。$(br2)两端仍然没有产生共振的话，先量距离，再检查水晶已有的连接数。若使用无线水晶，还得确认它记住的目标数量；任一项达到上限，都不会接受新的链接。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:tools/crystal_binder"
+    }
+  ]
+}

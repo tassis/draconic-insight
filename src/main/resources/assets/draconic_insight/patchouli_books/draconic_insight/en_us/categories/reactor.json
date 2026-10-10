@@ -1,6 +1,6 @@
 {
-  "name": "Draconic Reactor",
-  "description": "Notes meant to prevent an accident report: remote construction, first ignition, and disciplined shutdown.",
+  "name": "Reactor",
+  "description": "One day, a man in a black suit carrying a briefcase arrived at the laboratory and introduced himself as the Director. He gave us extensive theoretical data and construction plans, then asked us to begin researching a reactor powered by Draconium. Come to think of it, the Draconium reports have not even been submitted yet... How does he know about any of this?",
   "icon": "draconicevolution:reactor_core",
   "sortnum": 40
 }

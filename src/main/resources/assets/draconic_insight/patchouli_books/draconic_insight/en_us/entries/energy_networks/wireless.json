@@ -7,13 +7,13 @@
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:basic_wireless_crystal",
-      "title": "One Crystal, Many Machines",
-      "text": "A wireless crystal avoids covering every machine face with Direct I/O crystals. Binder-link it into the crystal network, select it with the Binder, then use each target machine in turn—no crystal needs to touch them."
+      "title": "Still Powered?",
+      "text": "After accidentally kicking a cable loose, I found that equipment which should have lost power was somehow still operating... That should be impossible. The only suspect is this crystal.$(br2)Purifying it again with a modifier somehow allows certain machines to become targets for energy transmission. Yet the machines show none of the same resonance observed in the crystals... Why?"
     },
     {
       "type": "patchouli:text",
-      "title": "Controlling the Flow",
-      "text": "Sneak-use the crystal empty-handed to switch mode. $(bold)Input$() pulls energy from the linked machines; $(bold)Output$() sends energy to them."
+      "title": "Controlling It",
+      "text": "First use the Binder to connect the wireless crystal to the network, then select the crystal and use it on the target equipment. The two do not need to touch.$(br2)Sneak-use the crystal empty-handed to switch direction: $(bold)Input$() draws energy from the target equipment, while $(bold)Output$() sends energy to it."
     },
     {
       "type": "patchouli:crafting",

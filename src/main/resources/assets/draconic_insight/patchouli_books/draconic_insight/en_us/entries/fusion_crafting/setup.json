@@ -11,7 +11,7 @@
     },
     {
       "type": "patchouli:multiblock",
-      "name": "Simplest Basic Layout",
+      "name": "Basic Layout",
       "enable_visualize": false,
       "multiblock": {
         "pattern": [

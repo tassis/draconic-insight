@@ -11,7 +11,7 @@
     },
     {
       "type": "patchouli:multiblock",
-      "name": "Input/Output Port Structure",
+      "name": "Input/Output Port",
       "enable_visualize": true,
       "multiblock": {
         "pattern": [

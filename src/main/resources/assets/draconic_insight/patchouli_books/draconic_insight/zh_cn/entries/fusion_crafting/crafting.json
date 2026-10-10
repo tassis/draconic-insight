@@ -1,0 +1,30 @@
+{
+  "name": "聚能合成方式",
+  "icon": "draconicevolution:wyvern_crafting_injector",
+  "category": "draconic_insight:fusion_crafting",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "聚能合成方式",
+      "text": "核心材料必须放置于聚能合成核心中，其余材料必须置于能量注入器上，并将注入器接入能量。直到能量充满时，便会刺激中央的材料发生变化……原理什么的完全搞不懂，难道科学的尽头真的是玄学吗？"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "又失败了……",
+      "text": "先检查触媒和材料数量，再清空多余的注入器。然后才是注入器阶级、朝向、通道与供电。照这个顺序比较不会漏掉。$(br2)另外，两格距离真的太近了。至少得离核心三格。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:wyvern_crafting_injector",
+      "title": "注入器的等级是关键",
+      "text": "高等级的注入器也必须靠聚能制作，如果注入器等级不匹配会由于速率不均等导致失败，安全机制会自动阻止该次的运作。所以必须一次性更换所有核心与注入器。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:chaotic_crafting_injector",
+      "title": "高等级的注入器",
+      "text": "根据数据记载，更高等级的注入器可以处理更多类型的物品与具有更高的效率，相关的材料是……$(br2)（后面的页面有许多破损……）"
+    }
+  ]
+}

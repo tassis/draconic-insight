@@ -1,0 +1,29 @@
+{
+  "name": "装备模块",
+  "icon": "draconicevolution:module_core",
+  "category": "draconic_insight:equipment",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:module_core",
+      "title": "模块接口",
+      "text": "携带模块化装备并按下$(thing)工具模块$()按键（默认 Shift+C），便能打开装备的模块接口。模块必须符合形状、数量限制、兼容装备与阶级限制，任何一项不符都无法安装。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "模块类型",
+      "text": "模块依用途可以分成几组：$(br2)$(bold)所有供能装备：$()能量。$(br)$(bold)工具与权杖：$()伤害、速度、挖掘范围、伐木、垃圾过滤。$(br)$(bold)胸甲：$()护盾控制、容量、恢复、移动、飞行、不死与自动进食。$(br)$(bold)弓：$()投射物伤害、速度、精准、穿透与重力补偿。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "模块的排列",
+      "text": "每个模块会占用不同大小的空间，安装前必须先确认形状、兼容装备与数量限制。胸甲必须先保留护盾控制模块的位置，再考虑护盾容量与恢复等功能。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:modules/module_core",
+      "recipe2": "draconicevolution:modules/item_draconium_energy"
+    }
+  ]
+}

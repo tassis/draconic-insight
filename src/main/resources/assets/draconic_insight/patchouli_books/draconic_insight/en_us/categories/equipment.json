@@ -1,6 +1,6 @@
 {
-  "name": "Equipment and Modules",
-  "description": "Equipment notes gathered the expensive way: tier paths, module grids, and which improvements deserve space first.",
+  "name": "Equipment & Modules",
+  "description": "Draconium's physical properties are little different from Netherite, so it offers no obvious advantage as equipment. But perhaps its ability to store energy could let us add other functions through external modules?",
   "icon": "draconicevolution:wyvern_chestpiece",
   "sortnum": 30
 }

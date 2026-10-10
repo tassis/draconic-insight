@@ -37,10 +37,12 @@ class CrystalInformationTest {
     }
 
     @Test
-    void englishAndTraditionalChineseExposeTheSameContractKeys() {
+    void allLocalesExposeTheSameContractKeys() {
         JsonObject english = readLanguage("en_us");
         JsonObject traditionalChinese = readLanguage("zh_tw");
+        JsonObject simplifiedChinese = readLanguage("zh_cn");
         assertEquals(english.keySet(), traditionalChinese.keySet());
+        assertEquals(english.keySet(), simplifiedChinese.keySet());
         assertTrue(english.keySet().contains("jei.draconic_insight.crystal.limits.relay"));
         assertTrue(english.keySet().contains("jei.draconic_insight.binder.select"));
         assertTrue(english.keySet().contains("jade.draconic_insight.flow"));

@@ -1,0 +1,33 @@
+{
+  "name": "能量柱",
+  "icon": "draconicevolution:energy_pylon",
+  "category": "draconic_insight:energy_storage",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:energy_pylon",
+      "text": "这个方块是能量核心的输入／输出端口；控制器本身不能直接连接能量网络。$(br2)将完整玻璃方块紧贴在它朝向已启动核心的一面。结构成立后，玻璃会变成球形接点。线缆或水晶要接在这个方块本体；操作球形接点可切换输入／输出，潜行操作这个方块则能切换附近的核心。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "输入／输出端口结构",
+      "enable_visualize": true,
+      "multiblock": {
+        "pattern": [
+          ["0PG"]
+        ],
+        "mapping": {
+          "P": "draconicevolution:energy_pylon",
+          "G": "minecraft:glass"
+        },
+        "offset": [1, 0, 0]
+      },
+      "text": "结构只需要一个能量柱与一个完整玻璃方块。玻璃那一侧必须朝向已启动的能量核心，排列为「$(bold)能量柱 → 玻璃 → 能量核心$()」。线缆与水晶则连接能量柱本体。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/energy_pylon"
+    }
+  ]
+}

@@ -50,5 +50,5 @@
   "config.jade.plugin_draconic_insight.crystal_flow": "Crystal power-flow telemetry",
   "config.jade.plugin_draconic_insight.crystal_flow_desc": "Show recent link and wireless transfer rates in the crystal Jade overlay. Disabled by default.",
   "book.draconic_insight.name": "Draconic Insight",
-  "book.draconic_insight.landing": "A traveler's record of Draconium experiments—successful constructions, expensive mistakes, and the measurements worth carrying forward."
+  "book.draconic_insight.landing": "I received a strange mineral from a client. It gives off energy resembling the Ender Dragon's breath, so I will call it Draconium for now. I want to keep a careful record of my research here; perhaps I can find something useful in it."
 }

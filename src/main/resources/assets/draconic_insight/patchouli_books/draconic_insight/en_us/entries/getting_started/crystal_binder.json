@@ -7,13 +7,13 @@
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:crystal_binder",
-      "title": "The First Useful Trick",
-      "text": "The Binder follows a two-step rhythm: it joins crystals to crystals and wireless crystals to machines.$(br2)$(bold)Select:$() sneak-use the first endpoint.$(br)$(bold)Connect:$() use the second.$(br)Repeat for each additional link."
+      "title": "Amplifying Resonance",
+      "text": "I found a way to use resonance. Purifying the material in Draconium into crystals seems to amplify the effect. More interestingly, a crystal can be tuned to accept resonance only within a particular frequency band. The Binder quickly synchronizes the spectra of two crystals.$(br2)$(bold)Synchronize spectrum:$() hold the Binder and sneak-use the first endpoint.$(br)$(bold)Create link:$() use the second endpoint.$(br)The first endpoint must be synchronized again for every new link."
     },
     {
       "type": "patchouli:text",
-      "title": "When Nothing Connects",
-      "text": "Sneak-use the Binder in the air to clear its selected endpoint; clearing it before each new job prevents accidental links.$(br2)If a link still fails, measure the range and count existing links or wireless targets. A full crystal accepts no more, however many times the Binder is waved at it."
+      "title": "Sync Failure",
+      "text": "If the wrong first endpoint was selected, hold the Binder and sneak-use it in the air to clear the spectrum it remembers. Doing this before rewiring also helps prevent accidental links.$(br2)If the endpoints still do not resonate, measure the distance and count the crystal's existing links. For a wireless crystal, also check how many targets it remembers. Once either limit is reached, it will accept no new link."
     },
     {
       "type": "patchouli:crafting",

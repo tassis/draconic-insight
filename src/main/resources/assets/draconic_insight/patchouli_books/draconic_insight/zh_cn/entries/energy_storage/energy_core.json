@@ -1,0 +1,126 @@
+{
+  "name": "能量核心",
+  "icon": "draconicevolution:energy_core",
+  "category": "draconic_insight:energy_storage",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:energy_core",
+      "text": "利用龙矿能够储藏能量的特性与共振机制，我试着做出了能量核心的原型。但只是这样还不够，大量能量聚集在一起时，很容易彼此碰撞并散失，必须搭配四台稳定器制造力场才能使用。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "内置的控制器",
+      "text": "我发现，只要在能量核心周围依照特定方式排列提纯后的龙矿砖与介质，就能稳定提高储能体的容量。不过，这会占用大量空间，甚至可能需要升级稳定器。$(br2)经过多番测试，我在控制器中写入了多种稳定模板，方便快速建造。不然每次都得一个一个搭，实在累死了。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "自动组装机制",
+      "text": "控制器会自动将找到的材料放置到指定位置。如果控制器停了下来，通常代表对应位置被其他东西挡住，或是缺少材料，需要依序排查。$(br2)另外，控制器只会处理外壳的部分，稳定器等外围设备还是得自己设置。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "控制器结构验证",
+      "text": "控制器上的$(thing)核心无效$()和$(thing)稳定器无效$()都消失后，结构应该就成立了。这时便能启动能量核心。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "还是不肯启动的话",
+      "text": "$(bold)核心无效：$()先核对选择的规模和建造引导。该留空的地方只要多出一个方块就会失败。$(br)$(bold)稳定器无效：$()四个中心要沿同一轴线对称，距离也不能超过 15 格。$(br2)如果是第 5～8 阶，每一面还得扩成九方块的 3×3 平面。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "先把材料数量记下来",
+      "text": "免得下次又少带，先记下第 1～4 阶的外壳用量。以下都不包含控制器和四个稳定器。$(br2)$(bold)第 1 阶：$()无外壳材料。$(br)$(bold)第 2 阶（3³）：$()6 个龙矿方块。$(br)$(bold)第 3 阶（3³）：$()26 个龙矿方块。$(br)$(bold)第 4 阶（5³）：$()54 个龙矿方块、26 个红石方块。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "后面的数量有点惊人",
+      "text": "第 5 阶开始，四个稳定点也要扩成完整平面。下面只算外壳，别忘了另外准备 36 个稳定器方块。$(br2)$(bold)第 5 阶（7³）：$()90 个龙矿、80 个红石方块。$(br)$(bold)第 6 阶（9³）：$()150 个龙矿、178 个红石方块。$(br)$(bold)第 7 阶（11³）：$()210 个龙矿、328 个红石方块。$(br)$(bold)第 8 阶（13³）：$()材料是……$(br2)（后面的记录已经破损。）"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/energy_core"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "只有控制器的核心",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0  ", "   ", "   "],
+          ["   ", " X ", "   "],
+          ["   ", "   ", "   "]
+        ],
+        "mapping": {
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [1, 1, 1]
+      },
+      "text": "这就是第 1 阶，真的只有控制器。图中的紫色只是位置记号，那里要换成真正的能量核心控制器。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "六块龙矿组成的外壳",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0  ", " D ", "   "],
+          [" D ", "DXD", " D "],
+          ["   ", " D ", "   "]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [1, 1, 1],
+        "symmetrical": true
+      },
+      "text": "第 2 阶只要在控制器六面各放一个龙矿方块，比想像中省材料。紫色仍然只是控制器的位置记号。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "几乎实心的龙矿立方体",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0    ", "     ", "     ", "     ", "     "],
+          ["     ", " DDD ", " DDD ", " DDD ", "     "],
+          ["     ", " DDD ", " DXD ", " DDD ", "     "],
+          ["     ", " DDD ", " DDD ", " DDD ", "     "],
+          ["     ", "     ", "     ", "     ", "     "]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [2, 2, 2],
+        "symmetrical": true
+      },
+      "text": "第 3 阶突然变得厚重许多，几乎是实心的 3×3×3 龙矿立方体，正中央则是控制器。图中用紫色标记。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "开始出现红石内层",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0    ", " DDD ", " DDD ", " DDD ", "     "],
+          [" DDD ", "DRRRD", "DRRRD", "DRRRD", " DDD "],
+          [" DDD ", "DRRRD", "DRXRD", "DRRRD", " DDD "],
+          [" DDD ", "DRRRD", "DRRRD", "DRRRD", " DDD "],
+          ["     ", " DDD ", " DDD ", " DDD ", "     "]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "R": "#c:storage_blocks/redstone",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "symmetrical": true,
+        "offset": [2, 2, 2]
+      },
+      "text": "第 4 阶第一次用上红石内层，外面再包一层龙矿。紫色是控制器的位置记号。从这里开始结构有点复杂，最好逐格对照建造引导。"
+    }
+  ]
+}

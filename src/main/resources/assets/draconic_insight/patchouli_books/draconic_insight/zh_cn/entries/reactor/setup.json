@@ -1,0 +1,69 @@
+{
+  "name": "反应炉结构",
+  "icon": "draconicevolution:reactor_core",
+  "category": "draconic_insight:reactor",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:reactor_core",
+      "title": "再远一点，还不够远",
+      "text": "$(bold)警告：$()如果这次试验失败，周围恐怕什么都不会留下。我不会把反应炉盖在基地、珍贵地形或其他反应炉附近；离得越远越好。$(br2)核心、稳定器、注入器与供电系统必须集中设置，运转期间任何一部分都不能停摆。封锁场也一定要有独立的备用电源。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "核心只看得到六个方向",
+      "text": "我试着把稳定器稍微挪开，核心却完全不承认它。看来稳定器与能量注入器都只能放在六个正轴上，距离必须是 4～7 格，全部朝向核心，中间也只能留空气。$(br2)最容易检查的做法，是把四个稳定器放在水平面，垂直方向留给能量注入器。至少这样不容易接错。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "四个稳定点",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0   S    ", "         ", "         ", "         ", "S   C   S", "         ", "         ", "         ", "    S    "]
+        ],
+        "mapping": {
+          "S": "draconicevolution:reactor_stabilizer",
+          "C": "minecraft:purple_stained_glass"
+        },
+        "offset": [4, 0, 4],
+        "symmetrical": true
+      },
+      "text": "先用最短的四格距离试作。四个稳定器全部朝向内侧。紫色只是核心的位置记号，那里得放真正的反应炉核心。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "从上方灌入封锁能量",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0"],
+          ["C"],
+          [" "],
+          [" "],
+          [" "],
+          ["I"]
+        ],
+        "mapping": {
+          "C": "minecraft:purple_stained_glass",
+          "I": "draconicevolution:reactor_injector"
+        },
+        "offset": [0, 1, 0]
+      },
+      "text": "水平面被稳定器占满后，只好从核心正上方 4～7 格放置能量注入器，朝下对准核心，再从外侧供应封锁能量。核心下方也能再放一个。整套配置应该可以一起旋转。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:reactor_core",
+      "title": "光是核心还不够",
+      "text": "反应炉核心与稳定器都需要后期聚能合成。一座反应炉正好使用一个核心与四个稳定器。这五件最好在出发前就准备好，没必要为了少带一个再跑回来。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:reactor_injector",
+      "title": "封锁场的生命线",
+      "text": "能量注入器同样需要聚能合成。一个就能运转，对侧也可以再加一个。至少留一份备用品在远离炉址的地方吧。真出事时，放在旁边的备品只会一起消失。"
+    }
+  ]
+}

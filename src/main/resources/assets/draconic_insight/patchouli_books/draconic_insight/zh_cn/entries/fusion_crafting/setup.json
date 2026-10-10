@@ -1,0 +1,35 @@
+{
+  "name": "聚能设备",
+  "icon": "draconicevolution:crafting_core",
+  "category": "draconic_insight:fusion_crafting",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:crafting_core",
+      "text": "根据数据中的理论，以龙矿核心搭配其他材料制作基础框架，能够将置于其中的物品进行聚能合成。如果是龙矿砖，则能够强化其各方面的能力。$(br2)必须以聚能合成核心为中心点，将能量注入器间隔三格并朝向核心摆放，中间不可以有任何阻挡。通道必须保持净空，连另外一个注入器都不能挡在中间。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "最简单的基本排列",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0  I   ", "       ", "       ", "I  C  I", "       ", "       ", "   I   "]
+        ],
+        "mapping": {
+          "I": "draconicevolution:basic_crafting_injector",
+          "C": "minecraft:purple_stained_glass"
+        },
+        "symmetrical": true,
+        "offset": [3, 0, 3]
+      },
+      "text": "四个注入器各距核心三格，全部朝向内侧。这是目前最容易检查的配置。紫色只是核心的位置记号；理论上，只要距离、朝向与通道都正确，其他形状也能成立。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/crafting_core",
+      "recipe2": "draconicevolution:machines/basic_crafting_injector"
+    }
+  ]
+}
