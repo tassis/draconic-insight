@@ -30,7 +30,8 @@ class HandbookResourceTest {
         "energy_networks/direct_io",
         "energy_networks/wireless",
         "energy_storage/energy_core",
-        "energy_storage/stabilizers_and_pylons",
+        "energy_storage/stabilizers",
+        "energy_storage/energy_pylon",
         "fusion_crafting/setup",
         "fusion_crafting/crafting",
         "equipment/progression",
@@ -55,6 +56,19 @@ class HandbookResourceTest {
             assertEquals(english.get("category"), traditionalChinese.get("category"), entry);
             assertEquals(pageTypes(english), pageTypes(traditionalChinese), entry);
             assertTrue(english.getAsJsonArray("pages").size() > 0, entry);
+        }
+    }
+
+    @Test
+    void categoryIndexUsesIntendedReadingOrder() throws IOException {
+        List<String> order = List.of(
+            "getting_started", "energy_networks", "energy_storage", "equipment", "reactor", "fusion_crafting"
+        );
+        for (String locale : List.of("en_us", "zh_tw")) {
+            for (int index = 0; index < order.size(); index++) {
+                JsonObject category = read(ROOT + locale + "/categories/" + order.get(index) + ".json");
+                assertEquals(index * 10, category.get("sortnum").getAsInt(), locale + ": " + order.get(index));
+            }
         }
     }
 
@@ -102,7 +116,7 @@ class HandbookResourceTest {
         }
 
         JsonObject fusion = read(ROOT + "en_us/entries/fusion_crafting/setup.json");
-        JsonObject fusionMapping = fusion.getAsJsonArray("pages").get(2).getAsJsonObject()
+        JsonObject fusionMapping = pageNamed(fusion.getAsJsonArray("pages"), "Simplest Basic Layout")
             .getAsJsonObject("multiblock").getAsJsonObject("mapping");
         assertEquals("minecraft:purple_stained_glass", fusionMapping.get("C").getAsString());
     }
@@ -124,7 +138,7 @@ class HandbookResourceTest {
         }
 
         JsonArray fusionPages = read(ROOT + "en_us/entries/fusion_crafting/setup.json").getAsJsonArray("pages");
-        assertSafeProxy(pageNamed(fusionPages, "Example Four-Injector Layout"), "C");
+        assertSafeProxy(pageNamed(fusionPages, "Simplest Basic Layout"), "C");
 
         JsonArray reactorPages = read(ROOT + "en_us/entries/reactor/setup.json").getAsJsonArray("pages");
         assertSafeProxy(pageNamed(reactorPages, "Four Stabilizers"), "C");
@@ -169,38 +183,42 @@ class HandbookResourceTest {
             "places the shell automatically",
             "Assemble Core builds only",
             "Use $(bold)Build Guide$() only",
-            "1–15 blocks",
             "Core Invalid",
-            "Stabilizers Invalid",
-            "Energy Pylon",
-            "not the controller"
+            "Stabilizers Invalid"
         )) {
             assertTrue(instructions.contains(required), required);
         }
 
-        JsonObject stabilizers = pageNamed(english, "Tier 1–4 Stabilizers");
+        JsonArray stabilizerEntry = read(ROOT + "en_us/entries/energy_storage/stabilizers.json")
+            .getAsJsonArray("pages");
+        assertTrue(narrativeText(stabilizerEntry).contains("1–15 blocks"));
+        JsonObject stabilizers = pageNamed(stabilizerEntry, "Tier 1–4 Stabilizers");
         assertSymbolCounts(stabilizers, Map.of('S', 4, 'X', 1));
         assertSafeProxy(stabilizers, "X");
 
-        JsonArray stabilizerEntry = read(ROOT + "en_us/entries/energy_storage/stabilizers_and_pylons.json")
-            .getAsJsonArray("pages");
         JsonObject advancedStabilizer = pageNamed(stabilizerEntry, "Advanced Stabilizer");
         assertSymbolCounts(advancedStabilizer, Map.of('S', 9));
         assertTrue(narrativeText(stabilizerEntry).contains("36 stabilizer blocks total"));
+
+        JsonArray pylonEntry = read(ROOT + "en_us/entries/energy_storage/energy_pylon.json")
+            .getAsJsonArray("pages");
+        assertTrue(narrativeText(pylonEntry).contains("not the controller"));
+        assertSymbolCounts(pageNamed(pylonEntry, "Input/Output Port Structure"), Map.of('P', 1, 'G', 1));
     }
 
     @Test
-    void handbookUsesRestrainedNarrationAndRecommendedChineseTitle() throws IOException {
+    void handbookUsesFirstPersonChineseJournalAndRestrainedEnglishNarration() throws IOException {
         JsonObject traditionalChineseLang = read("assets/draconic_insight/lang/zh_tw.json");
         assertEquals("龍之洞察", traditionalChineseLang.get("book.draconic_insight.name").getAsString());
+        String landing = traditionalChineseLang.get("book.draconic_insight.landing").getAsString();
+        assertTrue(landing.contains("我想在這裡好好記錄研究結果"));
+        assertTrue(landing.contains("姑且先叫作「龍礦」吧"));
 
-        for (String locale : List.of("en_us", "zh_tw")) {
-            for (String category : CATEGORIES) {
-                assertRestrainedNarration(read(ROOT + locale + "/categories/" + category + ".json"), locale, category);
-            }
-            for (String entry : ENTRIES) {
-                assertRestrainedNarration(read(ROOT + locale + "/entries/" + entry + ".json"), locale, entry);
-            }
+        for (String category : CATEGORIES) {
+            assertEnglishAvoidsFirstPerson(read(ROOT + "en_us/categories/" + category + ".json"), category);
+        }
+        for (String entry : ENTRIES) {
+            assertEnglishAvoidsFirstPerson(read(ROOT + "en_us/entries/" + entry + ".json"), entry);
         }
     }
 
@@ -235,9 +253,9 @@ class HandbookResourceTest {
         return text.toString();
     }
 
-    private void assertRestrainedNarration(JsonElement element, String locale, String path) {
+    private void assertEnglishAvoidsFirstPerson(JsonElement element, String path) {
         if (element.isJsonArray()) {
-            element.getAsJsonArray().forEach(child -> assertRestrainedNarration(child, locale, path));
+            element.getAsJsonArray().forEach(child -> assertEnglishAvoidsFirstPerson(child, path));
             return;
         }
         if (!element.isJsonObject()) return;
@@ -246,13 +264,9 @@ class HandbookResourceTest {
         for (String key : List.of("name", "title", "text", "description")) {
             if (!object.has(key) || !object.get(key).isJsonPrimitive()) continue;
             String text = object.get(key).getAsString();
-            if ("zh_tw".equals(locale)) {
-                assertFalse(text.contains("我"), path + ": " + text);
-            } else {
-                assertFalse(text.matches("(?is).*(?:^|\\s)(?:i|my|me|mine)(?:\\s|[.,:;!?—]|$).*"), path + ": " + text);
-            }
+            assertFalse(text.matches("(?is).*(?:^|\\s)(?:i|my|me|mine)(?:\\s|[.,:;!?—]|$).*"), path + ": " + text);
         }
-        object.entrySet().forEach(entry -> assertRestrainedNarration(entry.getValue(), locale, path));
+        object.entrySet().forEach(entry -> assertEnglishAvoidsFirstPerson(entry.getValue(), path));
     }
 
     private void assertNoDeploymentFraming(JsonElement element, String locale, String path) {

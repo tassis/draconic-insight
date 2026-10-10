@@ -1,5 +1,5 @@
 {
-  "name": "Sketching the Fusion Circle",
+  "name": "Fusion Equipment",
   "icon": "draconicevolution:crafting_core",
   "category": "draconic_insight:fusion_crafting",
   "sortnum": 0,
@@ -7,17 +7,11 @@
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:crafting_core",
-      "title": "The Quiet Center",
-      "text": "The Crafting Core sits at the center with the catalyst and, eventually, the result. Injectors hold the surrounding ingredients and drink OP while charging.$(br2)The Core searches along its six axes. Every injector must face it across a clear line."
-    },
-    {
-      "type": "patchouli:text",
-      "title": "Measured Distances",
-      "text": "The measured cardinal distance is 3–16 blocks. Slightly off-axis positions may answer, but a clean cardinal circle is far easier to inspect.$(br2)Keep every sight line empty: even another injector between one injector and the Core breaks the arrangement."
+      "text": "According to the supplied theory, a Draconium Core and supporting materials can form a framework that subjects items placed within it to Fusion. Draconium Blocks may even emerge with their properties strengthened.$(br2)Place the Crafting Core at the center, then place each Energy Injector three blocks away and facing inward. Nothing may obstruct the space between them; every channel must remain clear, including from other injectors."
     },
     {
       "type": "patchouli:multiblock",
-      "name": "Example Four-Injector Layout",
+      "name": "Simplest Basic Layout",
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
@@ -35,8 +29,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "draconicevolution:machines/crafting_core",
-      "recipe2": "draconicevolution:machines/basic_crafting_injector",
-      "title": "Basic Fusion Setup"
+      "recipe2": "draconicevolution:machines/basic_crafting_injector"
     }
   ]
 }

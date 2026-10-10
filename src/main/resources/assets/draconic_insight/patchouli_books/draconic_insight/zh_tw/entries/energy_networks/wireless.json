@@ -7,24 +7,23 @@
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:basic_wireless_crystal",
-      "title": "一顆水晶，多台機器",
-      "text": "無線水晶可避免在每台機器表面貼滿直接輸入／輸出水晶。先用連結器把它接入網路、選取它，再依序對每台目標機器使用；水晶不必緊貼機器。"
+      "title": "明明已經斷電了？",
+      "text": "在一次不小心踢到電線的意外後，我發現本該斷電的設備竟然還在正常運作……這不可能啊？只能懷疑是這顆水晶造成的。$(br2)沒想到加入改性劑後再提純，竟能讓部分機器設備成為能量傳輸的對象。可是，機器上並沒有觀測到與水晶相同的共振現象……到底是為什麼呢？"
     },
     {
       "type": "patchouli:text",
-      "title": "寫在頁邊的上限",
-      "text": "空手潛行使用可切換模式。$(bold)輸入$()從目標取出；$(bold)輸出$()送入目標。$(br2)實測上限：龍礦支援 4 個目標與 4 條水晶連線；飛龍為 8 與 8；神龍為 16 與 16。範圍分別是 32、64、127 格。"
+      "title": "要怎麼控制它？",
+      "text": "使用時，先用連結器把無線水晶接入網路，再選取水晶並對目標設備使用，兩者不必接觸。$(br2)空手潛行使用水晶能切換方向；$(bold)輸入$()會從目標設備取出能量，$(bold)輸出$()則把能量送過去。"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "draconicevolution:machines/basic_wireless_crystal",
-      "recipe2": "draconicevolution:machines/wyvern_wireless_crystal",
-      "title": "無線水晶"
+      "recipe2": "draconicevolution:machines/wyvern_wireless_crystal"
     },
     {
-      "type": "patchouli:crafting",
-      "recipe": "draconicevolution:machines/draconic_wireless_crystal",
-      "title": "神龍無線水晶"
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:draconic_wireless_crystal",
+      "text": "這種水晶似乎還能繼續提純。需要的材料是……$(br2)（後面的頁面有許多破損。）"
     }
   ]
 }

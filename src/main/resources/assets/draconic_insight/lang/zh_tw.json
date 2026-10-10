@@ -50,5 +50,5 @@
   "config.jade.plugin_draconic_insight.crystal_flow": "水晶電力流量資訊",
   "config.jade.plugin_draconic_insight.crystal_flow_desc": "在水晶 Jade 資訊中顯示近期連線與無線傳輸速率；預設關閉。",
   "book.draconic_insight.name": "龍之洞察",
-  "book.draconic_insight.landing": "一名旅者留下的龍礦實驗紀錄——成功的建造、代價高昂的錯誤，以及值得帶往下一次實驗的測量結果。"
+  "book.draconic_insight.landing": "從委託者那裡收到了一種奇特的礦物。它散發著與終界龍的龍息相似的能量，姑且先叫作「龍礦」吧。我想在這裡好好記錄研究結果，也許能從中找到派得上用場的東西。"
 }

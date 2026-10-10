@@ -1,6 +1,6 @@
 {
-  "name": "開始入門",
-  "description": "筆記的起點：龍礦通往何處，以及讓後續系統成為可能的連結器技巧。",
+  "name": "前言",
+  "description": "在不小心讓其中一塊礦物掉到地上後，我注意到實驗桌上的一部分礦物也跟著震動。我將這個特性稱作「共振」，也許能利用它做些有趣的事情……",
   "icon": "draconicevolution:crystal_binder",
   "sortnum": 0
 }

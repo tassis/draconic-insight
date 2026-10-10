@@ -17,8 +17,7 @@
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "draconicevolution:tools/crystal_binder",
-      "title": "Crystal Binder"
+      "recipe": "draconicevolution:tools/crystal_binder"
     }
   ]
 }

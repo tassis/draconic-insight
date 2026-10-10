@@ -6,25 +6,13 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "Where the Trail Begins",
-      "text": "The material trail begins with mined Draconium; process its dust or ore into ingots according to the active recipes. Draconium Cores, Energy Cores, and then Wyvern Cores form the early chain.$(br2)When an older account disagrees, the current recipes and machine interfaces are the safer record."
-    },
-    {
-      "type": "patchouli:text",
-      "title": "Where Fusion Leads",
-      "text": "Fusion opened the path to Awakened Draconium and the parts needed for Draconic equipment. Chaotic work lies at the far end and demands Chaos materials.$(br2)One costly lesson: an injector tier named by a recipe is a hard requirement, not a suggestion about speed."
+      "title": "Draconium Cores",
+      "text": "Once Draconium has been processed into ingots, it can be made into Draconium Cores, then Energy Cores and Wyvern Cores. Each core directly consumes the result from the previous step, so completed cores remain useful."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "draconicevolution:components/draconium_core",
-      "recipe2": "draconicevolution:components/wyvern_core",
-      "title": "Core Components"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "draconicevolution:awakened_core",
-      "title": "Fusion Components",
-      "text": "Awakened and Chaotic Cores are Fusion products. Each belongs to its matching material tier and requires injectors of the tier specified by its recipe.$(br2)An item portrait replaces the empty recipe frame because the ordinary frame cannot portray Fusion."
+      "recipe2": "draconicevolution:components/wyvern_core"
     }
   ]
 }

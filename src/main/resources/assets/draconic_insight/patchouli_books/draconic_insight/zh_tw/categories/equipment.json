@@ -1,6 +1,6 @@
 {
   "name": "裝備與模組",
-  "description": "代價不菲的裝備心得：材料階級、模組網格，以及最值得優先保留空間的能力。",
+  "description": "龍礦的物理性質與獄髓相差無幾，用來製作裝備似乎沒有明顯優勢。不過……若能利用它儲存能量的特性，也許我們能透過外接模組附加其他功能？",
   "icon": "draconicevolution:wyvern_chestpiece",
-  "sortnum": 40
+  "sortnum": 30
 }

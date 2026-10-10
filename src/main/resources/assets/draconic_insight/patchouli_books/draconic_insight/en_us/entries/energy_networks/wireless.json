@@ -12,19 +12,18 @@
     },
     {
       "type": "patchouli:text",
-      "title": "Limits in the Margin",
-      "text": "Sneak-use the crystal empty-handed to switch mode. $(bold)Input$() pulls from targets; $(bold)Output$() sends to them.$(br2)Measured limits: Draconium supports 4 targets and 4 crystal links; Wyvern 8 and 8; Draconic 16 and 16. Their ranges are 32, 64, and 127 blocks."
+      "title": "Controlling the Flow",
+      "text": "Sneak-use the crystal empty-handed to switch mode. $(bold)Input$() pulls energy from the linked machines; $(bold)Output$() sends energy to them."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "draconicevolution:machines/basic_wireless_crystal",
-      "recipe2": "draconicevolution:machines/wyvern_wireless_crystal",
-      "title": "Wireless Crystals"
+      "recipe2": "draconicevolution:machines/wyvern_wireless_crystal"
     },
     {
-      "type": "patchouli:crafting",
-      "recipe": "draconicevolution:machines/draconic_wireless_crystal",
-      "title": "Draconic Wireless"
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:draconic_wireless_crystal",
+      "text": "This crystal appears capable of further refinement. The required materials are...$(br2)(The remainder of the page is badly damaged.)"
     }
   ]
 }

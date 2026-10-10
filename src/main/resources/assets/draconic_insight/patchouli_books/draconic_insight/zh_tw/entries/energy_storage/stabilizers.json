@@ -1,0 +1,50 @@
+{
+  "name": "穩定器",
+  "icon": "draconicevolution:energy_core_stabilizer",
+  "category": "draconic_insight:energy_storage",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:energy_core_stabilizer",
+      "text": "穩定器必須以正四方對稱放置，並且位於能量核心的軸線上。缺少任何一邊，都可能造成力場不穩定，導致能量散失。穩定器與能量核心最遠可間隔 15 格。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "第 1～4 階穩定器配置",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0   S    ", "         ", "         ", "         ", "S   X   S", "         ", "         ", "         ", "    S    "]
+        ],
+        "mapping": {
+          "S": "draconicevolution:energy_core_stabilizer",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [4, 0, 4],
+        "symmetrical": true
+      },
+      "text": "四個穩定器各距控制器四格，並位於同一水平面。紫色只是控制器的位置記號，因為核心太難畫了。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "第 5～8 階穩定器結構",
+      "enable_visualize": true,
+      "multiblock": {
+        "pattern": [
+          ["0SSS", " SSS", " SSS"]
+        ],
+        "mapping": {
+          "S": "draconicevolution:energy_core_stabilizer"
+        },
+        "symmetrical": true,
+        "offset": [1, 0, 1]
+      },
+      "text": "第 5～8 階需要將每個穩定器擴成朝向核心的 3×3 平面。四面合計需要 36 個穩定器方塊。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "draconicevolution:machines/energy_core_stabilizer"
+    }
+  ]
+}

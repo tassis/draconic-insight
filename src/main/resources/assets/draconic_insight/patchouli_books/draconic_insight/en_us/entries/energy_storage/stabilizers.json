@@ -1,14 +1,30 @@
 {
-  "name": "Stabilizers and Pylons",
-  "icon": "draconicevolution:energy_pylon",
+  "name": "Stabilizers",
+  "icon": "draconicevolution:energy_core_stabilizer",
   "category": "draconic_insight:energy_storage",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:energy_core_stabilizer",
-      "title": "Four Points of Balance",
       "text": "An uneven arrangement is invalid. Place exactly four stabilizer centers in the four directions around one shared axis, each 1–15 blocks from the controller and outside the shell.$(br2)Tiers 1–4 use one block at each point. Tiers 5–8 require a full nine-block 3×3 plane at every point."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Tier 1–4 Stabilizers",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          ["0   S    ", "         ", "         ", "         ", "S   X   S", "         ", "         ", "         ", "    S    "]
+        ],
+        "mapping": {
+          "S": "draconicevolution:energy_core_stabilizer",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [4, 0, 4],
+        "symmetrical": true
+      },
+      "text": "Top view: four standalone stabilizers, each four blocks from the controller. Purple marks the real Energy Core controller; do not place glass. All four stabilizers must be on this same horizontal plane."
     },
     {
       "type": "patchouli:multiblock",
@@ -27,16 +43,8 @@
       "text": "For tier 5 and above, surround each stabilizer's center with eight more blocks to form a complete 3×3 plane. Its flat face must point toward the Energy Core; four planes require 36 stabilizer blocks total."
     },
     {
-      "type": "patchouli:spotlight",
-      "item": "draconicevolution:energy_pylon",
-      "title": "At Last, a Way In and Out",
-      "text": "The completed core still needed a doorway for energy. A Pylon becomes that doorway when any glass block touches one of its six faces; it then selects a nearby Core.$(br2)Sneak-use the Pylon to switch input/output, then attach the cable, machine, or Direct I/O crystal on the side your layout uses."
-    },
-    {
       "type": "patchouli:crafting",
-      "recipe": "draconicevolution:machines/energy_core_stabilizer",
-      "recipe2": "draconicevolution:machines/energy_pylon",
-      "title": "Core Connections"
+      "recipe": "draconicevolution:machines/energy_core_stabilizer"
     }
   ]
 }

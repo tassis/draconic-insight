@@ -1,6 +1,6 @@
 {
   "name": "Fusion Crafting",
-  "description": "A record of successful Fusion layouts, injector requirements, and the causes behind common failures.",
+  "description": "Documents supplied by the man calling himself the Director describe a process called Fusion, capable of changing and strengthening Draconium at the cost of enormous amounts of energy and material. Where did he learn any of this?",
   "icon": "draconicevolution:crafting_core",
-  "sortnum": 30
+  "sortnum": 50
 }

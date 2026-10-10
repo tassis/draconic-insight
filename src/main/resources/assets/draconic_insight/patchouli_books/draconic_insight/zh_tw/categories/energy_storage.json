@@ -1,6 +1,6 @@
 {
   "name": "能量核心儲存",
-  "description": "巨型能量核心的實測筆記：材料、穩定方式，以及終於能把能量導出的能量柱。",
+  "description": "既然龍礦能夠儲存能量，或許能利用這種性質製造出大型儲能體。不過能量聚集後的波動非常劇烈，還得用穩定器建立穩定力場才行。",
   "icon": "draconicevolution:energy_core",
   "sortnum": 20
 }

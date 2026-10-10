@@ -13,18 +13,17 @@
     {
       "type": "patchouli:text",
       "title": "Link Limits",
-      "text": "Direct I/O crystals allow 2, 3, or 4 crystal links at Draconium, Wyvern, and Draconic tiers. Their ranges are 32, 64, and 127 blocks.$(br2)An idle machine often means the crystal touches the wrong face. Check contact, then switch mode once and test again."
+      "text": "Draconium and Wyvern Direct I/O crystals allow 2 and 3 crystal links, with ranges of 32 and 64 blocks. The measurements for the higher-tier sample are no longer legible.$(br2)An idle machine often means the crystal touches the wrong face. Check contact, then switch mode once and test again."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "draconicevolution:machines/basic_io_crystal",
-      "recipe2": "draconicevolution:machines/wyvern_io_crystal",
-      "title": "Direct I/O"
+      "recipe2": "draconicevolution:machines/wyvern_io_crystal"
     },
     {
-      "type": "patchouli:crafting",
-      "recipe": "draconicevolution:machines/draconic_io_crystal",
-      "title": "Draconic Direct I/O"
+      "type": "patchouli:spotlight",
+      "item": "draconicevolution:draconic_io_crystal",
+      "text": "This crystal appears capable of further refinement. The required materials are...$(br2)(The remainder of the page is badly damaged.)"
     }
   ]
 }
