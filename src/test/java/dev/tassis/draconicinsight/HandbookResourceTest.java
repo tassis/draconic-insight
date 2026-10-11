@@ -120,9 +120,10 @@ class HandbookResourceTest {
         }
 
         JsonObject fusion = read(ROOT + "en_us/entries/fusion_crafting/setup.json");
-        JsonObject fusionMapping = pageNamed(fusion.getAsJsonArray("pages"), "Basic Layout")
-            .getAsJsonObject("multiblock").getAsJsonObject("mapping");
+        JsonObject fusionLayout = pageNamed(fusion.getAsJsonArray("pages"), "Eight Injectors");
+        JsonObject fusionMapping = fusionLayout.getAsJsonObject("multiblock").getAsJsonObject("mapping");
         assertEquals("minecraft:purple_stained_glass", fusionMapping.get("C").getAsString());
+        assertSymbolCounts(fusionLayout, Map.of('I', 8, 'C', 1));
     }
 
     @Test
@@ -147,7 +148,7 @@ class HandbookResourceTest {
         }
 
         JsonArray fusionPages = read(ROOT + "en_us/entries/fusion_crafting/setup.json").getAsJsonArray("pages");
-        assertSafeProxy(pageNamed(fusionPages, "Basic Layout"), "C");
+        assertSafeProxy(pageNamed(fusionPages, "Eight Injectors"), "C");
 
         JsonArray reactorPages = read(ROOT + "en_us/entries/reactor/setup.json").getAsJsonArray("pages");
         assertSafeProxy(pageNamed(reactorPages, "Four Stabilizers"), "C");

@@ -12,12 +12,12 @@
     {
       "type": "patchouli:text",
       "title": "Keep Waiting",
-      "text": "The Energy Injector needs a stable, uninterrupted OP supply. After charging begins, the reactor will not permit activation until the temperature reaches 2000°C and both saturation and containment exceed 50%.$(br2)As long as the Core still has any heat, the containment field must never lose power. This remains true during shutdown."
+      "text": "The Energy Injector needs a stable, uninterrupted energy input. After charging begins, the reactor will not permit activation until the temperature reaches 2000°C and both saturation and containment exceed 50%.$(br2)As long as the Core still has any heat, the containment field must never lose power. This remains true during shutdown."
     },
     {
       "type": "patchouli:text",
       "title": "Losing Balance",
-      "text": "The Energy Injector maintains the containment field, while the outer faces of the Stabilizers output OP. The more energy is extracted, the faster saturation falls.$(br2)Extract too little and saturation fills up, suppressing generation. Extract too much, or provide too little containment power, and the Core begins to destabilize. Temperature, saturation, containment, conversion... not one of them can be ignored."
+      "text": "The Energy Injector maintains the containment field, while the outer faces of the Stabilizers output energy. The more energy is extracted, the faster saturation falls.$(br2)Extract too little and saturation fills up, suppressing generation. Extract too much, or provide too little containment power, and the Core begins to destabilize. Temperature, saturation, containment, conversion... not one of them can be ignored."
     },
     {
       "type": "patchouli:text",
