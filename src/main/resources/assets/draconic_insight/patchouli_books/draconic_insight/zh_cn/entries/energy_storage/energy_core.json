@@ -49,15 +49,35 @@
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0  ", "   ", "   "],
-          ["   ", " X ", "   "],
-          ["   ", "   ", "   "]
+          [
+            "0  ",
+            "   ",
+            "   "
+          ],
+          [
+            "   ",
+            " X ",
+            "   "
+          ],
+          [
+            "   ",
+            "   ",
+            "   "
+          ]
         ],
         "mapping": {
           "X": "minecraft:purple_stained_glass"
         },
-        "offset": [1, 1, 1]
-      },
+        "offset": [
+          1,
+          -1,
+          1
+        ]
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "只有控制器的核心",
       "text": "这就是第 1 阶，真的只有控制器。图中的紫色只是位置记号，那里要换成真正的能量核心控制器。"
     },
     {
@@ -66,17 +86,37 @@
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0  ", " D ", "   "],
-          [" D ", "DXD", " D "],
-          ["   ", " D ", "   "]
+          [
+            "0  ",
+            " D ",
+            "   "
+          ],
+          [
+            " D ",
+            "DXD",
+            " D "
+          ],
+          [
+            "   ",
+            " D ",
+            "   "
+          ]
         ],
         "mapping": {
           "D": "#c:storage_blocks/draconium",
           "X": "minecraft:purple_stained_glass"
         },
-        "offset": [1, 1, 1],
+        "offset": [
+          1,
+          -1,
+          1
+        ],
         "symmetrical": true
-      },
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "六块龙矿组成的外壳",
       "text": "第 2 阶只要在控制器六面各放一个龙矿方块，比想像中省材料。紫色仍然只是控制器的位置记号。"
     },
     {
@@ -85,19 +125,57 @@
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0    ", "     ", "     ", "     ", "     "],
-          ["     ", " DDD ", " DDD ", " DDD ", "     "],
-          ["     ", " DDD ", " DXD ", " DDD ", "     "],
-          ["     ", " DDD ", " DDD ", " DDD ", "     "],
-          ["     ", "     ", "     ", "     ", "     "]
+          [
+            "0    ",
+            "     ",
+            "     ",
+            "     ",
+            "     "
+          ],
+          [
+            "     ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ],
+          [
+            "     ",
+            " DDD ",
+            " DXD ",
+            " DDD ",
+            "     "
+          ],
+          [
+            "     ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ],
+          [
+            "     ",
+            "     ",
+            "     ",
+            "     ",
+            "     "
+          ]
         ],
         "mapping": {
           "D": "#c:storage_blocks/draconium",
           "X": "minecraft:purple_stained_glass"
         },
-        "offset": [2, 2, 2],
+        "offset": [
+          2,
+          -2,
+          2
+        ],
         "symmetrical": true
-      },
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "几乎实心的龙矿立方体",
       "text": "第 3 阶突然变得厚重许多，几乎是实心的 3×3×3 龙矿立方体，正中央则是控制器。图中用紫色标记。"
     },
     {
@@ -106,11 +184,41 @@
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0    ", " DDD ", " DDD ", " DDD ", "     "],
-          [" DDD ", "DRRRD", "DRRRD", "DRRRD", " DDD "],
-          [" DDD ", "DRRRD", "DRXRD", "DRRRD", " DDD "],
-          [" DDD ", "DRRRD", "DRRRD", "DRRRD", " DDD "],
-          ["     ", " DDD ", " DDD ", " DDD ", "     "]
+          [
+            "0    ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ],
+          [
+            " DDD ",
+            "DRRRD",
+            "DRRRD",
+            "DRRRD",
+            " DDD "
+          ],
+          [
+            " DDD ",
+            "DRRRD",
+            "DRXRD",
+            "DRRRD",
+            " DDD "
+          ],
+          [
+            " DDD ",
+            "DRRRD",
+            "DRRRD",
+            "DRRRD",
+            " DDD "
+          ],
+          [
+            "     ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ]
         ],
         "mapping": {
           "D": "#c:storage_blocks/draconium",
@@ -118,9 +226,222 @@
           "X": "minecraft:purple_stained_glass"
         },
         "symmetrical": true,
-        "offset": [2, 2, 2]
-      },
+        "offset": [
+          2,
+          -2,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "开始出现红石内层",
       "text": "第 4 阶第一次用上红石内层，外面再包一层龙矿。紫色是控制器的位置记号。从这里开始结构有点复杂，最好逐格对照建造引导。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T3：第1／3层 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0    ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T3：第2／3层 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0    ",
+            " DDD ",
+            " DXD ",
+            " DDD ",
+            "     "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T3：第3／3层 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0    ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T4：第1／5层 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0    ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "R": "#c:storage_blocks/redstone",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T4：第2／5层 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0DDD ",
+            "DRRRD",
+            "DRRRD",
+            "DRRRD",
+            " DDD "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "R": "#c:storage_blocks/redstone",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T4：第3／5层 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0DDD ",
+            "DRRRD",
+            "DRXRD",
+            "DRRRD",
+            " DDD "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "R": "#c:storage_blocks/redstone",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T4：第4／5层 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0DDD ",
+            "DRRRD",
+            "DRRRD",
+            "DRRRD",
+            " DDD "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "R": "#c:storage_blocks/redstone",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T4：第5／5层 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0    ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "R": "#c:storage_blocks/redstone",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
     }
   ]
 }

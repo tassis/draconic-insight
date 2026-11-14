@@ -37,6 +37,8 @@ class MetadataContractTest {
         assertTrue(metadata.contains("modId=\"jei\"\ntype=\"optional\""));
         assertTrue(metadata.contains("modId=\"jade\"\ntype=\"optional\""));
         assertTrue(metadata.contains("modId=\"patchouli\"\ntype=\"optional\""));
+        assertTrue(metadata.contains("modId=\"ponder\"\ntype=\"optional\""));
+        assertTrue(metadata.contains("modId=\"neoforge\"\ntype=\"required\"\nversionRange=\"[21.1.228,)\""));
         assertFalse(metadata.contains("modId=\"emi\""));
         assertFalse(metadata.contains("retrodraconic"));
         assertFalse(metadata.contains("modId=\"traveler_echoes\""));

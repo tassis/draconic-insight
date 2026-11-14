@@ -18,6 +18,16 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - neoforge: '21.1.228'
+            jei: '19.21.0.247'
+          - neoforge: '21.1.249'
+            jei: '19.51.0.418'
+          - neoforge: '21.1.266'
+            jei: '19.51.0.418'
 
     steps:
       - name: Check out repository
@@ -61,12 +71,15 @@ jobs:
           fi
 
       - name: Test and build
-        run: gradle --no-daemon clean test build
+        run: gradle --no-daemon clean test build "-Pneo_version=${{ matrix.neoforge }}" "-Pjei_version=${{ matrix.jei }}"
 
       - name: Upload test report on failure
         if: failure()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: test-report-${{ github.run_number }}
-          path: build/reports/tests/test/
+          name: test-report-${{ matrix.neoforge }}-${{ github.run_number }}
+          path: |
+            build/reports/tests/test/
+            build/tutorial-smoke-*.json
+            build/tutorial-server-smoke-*.json
           if-no-files-found: ignore

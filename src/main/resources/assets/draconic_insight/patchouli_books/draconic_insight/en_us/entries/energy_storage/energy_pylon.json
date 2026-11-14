@@ -6,7 +6,10 @@
   "pages": [
     {
       "type": "patchouli:spotlight",
-      "item": "draconicevolution:energy_pylon",
+      "item": "draconicevolution:energy_pylon"
+    },
+    {
+      "type": "patchouli:text",
       "text": "This block is the core's input and output port; the controller cannot connect to an energy network directly.$(br2)Place a full glass block directly against it on the side facing an active core. The glass becomes a spherical terminal when valid. Connect cables or crystals to this block, not the controller. Use the sphere to switch input/output; sneak-use the block to select another nearby active core."
     },
     {
@@ -15,14 +18,25 @@
       "enable_visualize": true,
       "multiblock": {
         "pattern": [
-          ["0PG"]
+          [
+            "0PG"
+          ]
         ],
         "mapping": {
-          "P": "draconicevolution:energy_pylon",
+          "P": "draconicevolution:energy_pylon[facing=south]",
           "G": "minecraft:glass"
         },
-        "offset": [1, 0, 0]
+        "offset": [
+          0,
+          0,
+          1
+        ]
       },
+      "multiblock_id": "draconic_insight:energy_pylon"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Input/Output Port",
       "text": "The structure uses one pylon and one full glass block. The glass side must face the active Energy Core: $(bold)Pylon → Glass → Core$(). Cables and crystals connect to the pylon block itself."
     },
     {

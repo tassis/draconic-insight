@@ -1,0 +1,26 @@
+[
+  {
+    "id": "energy_storage",
+    "icon": "draconicevolution:energy_core"
+  },
+  {
+    "id": "crystal_network",
+    "icon": "draconicevolution:crystal_binder"
+  },
+  {
+    "id": "fusion_crafting",
+    "icon": "draconicevolution:crafting_core"
+  },
+  {
+    "id": "spawning",
+    "icon": "draconicevolution:stabilized_spawner"
+  },
+  {
+    "id": "flow_control",
+    "icon": "draconicevolution:fluid_gate"
+  },
+  {
+    "id": "reactor",
+    "icon": "draconicevolution:reactor_core"
+  }
+]

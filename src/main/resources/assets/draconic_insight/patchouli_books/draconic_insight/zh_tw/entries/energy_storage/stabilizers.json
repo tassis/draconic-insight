@@ -15,15 +15,33 @@
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0   S    ", "         ", "         ", "         ", "S   X   S", "         ", "         ", "         ", "    S    "]
+          [
+            "0   S    ",
+            "         ",
+            "         ",
+            "         ",
+            "S   X   S",
+            "         ",
+            "         ",
+            "         ",
+            "    S    "
+          ]
         ],
         "mapping": {
           "S": "draconicevolution:energy_core_stabilizer",
           "X": "minecraft:purple_stained_glass"
         },
-        "offset": [4, 0, 4],
+        "offset": [
+          4,
+          0,
+          4
+        ],
         "symmetrical": true
-      },
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "第 1～4 階穩定器配置",
       "text": "四個穩定器各距控制器四格，並位於同一水平面。紫色只是控制器的位置記號，因為核心太難畫了。"
     },
     {
@@ -32,14 +50,31 @@
       "enable_visualize": true,
       "multiblock": {
         "pattern": [
-          ["0SSS", " SSS", " SSS"]
+          [
+            "0SSS"
+          ],
+          [
+            " SSS"
+          ],
+          [
+            " SSS"
+          ]
         ],
         "mapping": {
           "S": "draconicevolution:energy_core_stabilizer"
         },
         "symmetrical": true,
-        "offset": [1, 0, 1]
+        "offset": [
+          0,
+          -1,
+          2
+        ]
       },
+      "multiblock_id": "draconic_insight:advanced_stabilizers"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "第 5～8 階穩定器結構",
       "text": "第 5～8 階需要將每個穩定器擴成朝向核心的 3×3 平面。四面合計需要 36 個穩定器方塊。"
     },
     {

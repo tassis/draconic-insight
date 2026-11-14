@@ -123,7 +123,7 @@ class HandbookResourceTest {
         JsonObject fusionLayout = pageNamed(fusion.getAsJsonArray("pages"), "Eight Injectors");
         JsonObject fusionMapping = fusionLayout.getAsJsonObject("multiblock").getAsJsonObject("mapping");
         assertEquals("minecraft:purple_stained_glass", fusionMapping.get("C").getAsString());
-        assertSymbolCounts(fusionLayout, Map.of('I', 8, 'C', 1));
+        assertSymbolCounts(fusionLayout, Map.of('E', 2, 'W', 2, 'N', 2, 'S', 2, 'C', 1));
     }
 
     @Test
@@ -296,8 +296,8 @@ class HandbookResourceTest {
     private void assertVerticalReactorInjectorAxis(JsonObject page) {
         JsonArray pattern = page.getAsJsonObject("multiblock").getAsJsonArray("pattern");
         assertEquals(6, pattern.size());
-        assertEquals("C", pattern.get(1).getAsJsonArray().get(0).getAsString());
-        assertEquals("I", pattern.get(5).getAsJsonArray().get(0).getAsString());
+        assertEquals("I", pattern.get(1).getAsJsonArray().get(0).getAsString());
+        assertEquals("C", pattern.get(5).getAsJsonArray().get(0).getAsString());
     }
 
     private void assertSafeProxy(JsonObject page, String symbol) {

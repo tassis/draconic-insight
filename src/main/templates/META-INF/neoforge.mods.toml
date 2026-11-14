@@ -12,7 +12,7 @@ description='''Field notes for Draconic Evolution, with optional Patchouli, JEI,
 [[dependencies.${mod_id}]]
 modId="neoforge"
 type="required"
-versionRange="[${neo_version},)"
+versionRange="[${neo_min_version},)"
 ordering="NONE"
 side="BOTH"
 
@@ -33,7 +33,7 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="jei"
 type="optional"
-versionRange="[19.51.0.418]"
+versionRange="[19.21.0.247,20)"
 ordering="AFTER"
 side="CLIENT"
 
@@ -50,3 +50,10 @@ type="optional"
 versionRange="[1.21.1-93,)"
 ordering="AFTER"
 side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="ponder"
+type="optional"
+versionRange="[${ponder_version},2.0)"
+ordering="AFTER"
+side="CLIENT"

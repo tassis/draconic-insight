@@ -6,7 +6,10 @@
   "pages": [
     {
       "type": "patchouli:spotlight",
-      "item": "draconicevolution:crafting_core",
+      "item": "draconicevolution:crafting_core"
+    },
+    {
+      "type": "patchouli:text",
       "text": "According to the supplied theory, a Draconium Core and supporting materials can form a framework that subjects items placed within it to Fusion. Draconium Blocks may even emerge with their properties strengthened.$(br2)Place the Crafting Core at the center. Each Energy Injector must be 3 to 16 blocks away within one of six axial corridors. Each corridor is 3×3, so injectors may sit one block off its centerline rather than occupying only six positions. Face each injector toward the core's side and keep its straight channel clear, including from other injectors."
     },
     {
@@ -15,15 +18,34 @@
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0 I I  ", "       ", "I     I", "   C   ", "I     I", "       ", "  I I  "]
+          [
+            "0 E E  ",
+            "       ",
+            "S     N",
+            "   C   ",
+            "S     N",
+            "       ",
+            "  W W  "
+          ]
         ],
         "mapping": {
-          "I": "draconicevolution:basic_crafting_injector",
+          "E": "draconicevolution:basic_crafting_injector[facing=east]",
+          "W": "draconicevolution:basic_crafting_injector[facing=west]",
+          "S": "draconicevolution:basic_crafting_injector[facing=south]",
+          "N": "draconicevolution:basic_crafting_injector[facing=north]",
           "C": "minecraft:purple_stained_glass"
         },
         "symmetrical": true,
-        "offset": [3, 0, 3]
-      },
+        "offset": [
+          3,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Eight Injectors",
       "text": "This layout holds eight recipe ingredients. Each side uses two parallel channels: three blocks from the core along the main axis, offset one block sideways, and facing the core's side. Purple only marks the real Crafting Core."
     },
     {

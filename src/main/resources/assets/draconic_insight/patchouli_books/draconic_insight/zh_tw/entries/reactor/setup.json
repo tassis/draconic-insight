@@ -7,7 +7,10 @@
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:reactor_core",
-      "title": "再遠一點，還不夠遠",
+      "title": "再遠一點，還不夠遠"
+    },
+    {
+      "type": "patchouli:text",
       "text": "$(bold)警告：$()如果這次試驗失敗，周圍恐怕什麼都不會留下。我不會把反應爐蓋在基地、珍貴地形或其他反應爐附近；離得越遠越好。$(br2)核心、穩定器、注入器與供電系統必須集中設置，運轉期間任何一部分都不能停擺。封鎖場也一定要有獨立的備援電源。"
     },
     {
@@ -18,39 +21,79 @@
     {
       "type": "patchouli:multiblock",
       "name": "四個穩定點",
+      "multiblock_id": "draconic_insight:reactor_stabilizers",
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0   S    ", "         ", "         ", "         ", "S   C   S", "         ", "         ", "         ", "    S    "]
+          [
+            "0   S    ",
+            "         ",
+            "         ",
+            "         ",
+            "S   C   S",
+            "         ",
+            "         ",
+            "         ",
+            "    S    "
+          ]
         ],
         "mapping": {
           "S": "draconicevolution:reactor_stabilizer",
           "C": "minecraft:purple_stained_glass"
         },
-        "offset": [4, 0, 4],
+        "offset": [
+          4,
+          0,
+          4
+        ],
         "symmetrical": true
-      },
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "四個穩定點",
       "text": "先用最短的四格距離試作。四個穩定器全部朝向內側。紫色只是核心的位置記號，那裡得放真正的反應爐核心。"
     },
     {
       "type": "patchouli:multiblock",
       "name": "從上方灌入封鎖能量",
+      "multiblock_id": "draconic_insight:reactor_injector",
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0"],
-          ["C"],
-          [" "],
-          [" "],
-          [" "],
-          ["I"]
+          [
+            "0"
+          ],
+          [
+            "I"
+          ],
+          [
+            " "
+          ],
+          [
+            " "
+          ],
+          [
+            " "
+          ],
+          [
+            "C"
+          ]
         ],
         "mapping": {
           "C": "minecraft:purple_stained_glass",
           "I": "draconicevolution:reactor_injector"
         },
-        "offset": [0, 1, 0]
-      },
+        "offset": [
+          0,
+          -5,
+          0
+        ]
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "從上方灌入封鎖能量",
       "text": "水平面被穩定器佔滿後，只好從核心正上方 4～7 格放置能量注入器，朝下對準核心，再從外側供應封鎖能量。核心下方也能再放一個。整套配置應該可以一起旋轉。"
     },
     {

@@ -12,19 +12,47 @@ base {
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
+def ponderCoordinate = "net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}"
+def flywheelCoordinate = "dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}"
+
+def packagedTutorials = project.hasProperty('packagedTutorials')
+def tutorialSmokeMode = "${project.hasProperty('withoutPonder') ? 'no-ponder' : 'ponder'}-${project.hasProperty('withoutPatchouli') ? 'no-patchouli' : 'patchouli'}${packagedTutorials ? '-packaged' : ''}${project.hasProperty('withCreate') ? '-create' : ''}"
+def tutorialSmokeReport = layout.buildDirectory.file("tutorial-smoke-${neo_version}-${tutorialSmokeMode}.json")
+def tutorialServerReport = layout.buildDirectory.file("tutorial-server-smoke-${neo_version}-${tutorialSmokeMode}.json")
+
+sourceSets {
+    tutorialSmoke {
+        java.srcDirs = ['src/tools/tutorial-smoke/java']
+        resources.srcDirs = ['src/tools/tutorial-smoke/resources']
+    }
+}
+
+configurations {
+    tutorialSmokeImplementation.extendsFrom implementation
+    tutorialSmokeCompileOnly.extendsFrom compileOnly
+    tutorialSmokeRuntimeOnly.extendsFrom runtimeOnly
+}
+
 repositories {
     mavenCentral()
     maven { url = 'https://www.cursemaven.com' }
     maven { url = 'https://maven.blamejared.com' }
+    maven { url = 'https://maven.createmod.net' }
+    maven {
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
 }
 
 neoForge {
     version = neo_version
+    addModdingDependenciesTo sourceSets.tutorialSmoke
 
     mods {
         "${mod_id}" {
             sourceSet sourceSets.main
         }
+        tutorial_smoke { sourceSet sourceSets.tutorialSmoke }
     }
 
     unitTest {
@@ -35,32 +63,100 @@ neoForge {
     runs {
         client {
             client()
+            loadedMods = [mods."${mod_id}"]
             gameDirectory = project.file('run-client')
         }
         server {
             server()
+            loadedMods = [mods."${mod_id}"]
             gameDirectory = project.file('run-server')
+        }
+        tutorialSmokeClient {
+            client()
+            sourceSet = sourceSets.tutorialSmoke
+            loadedMods = packagedTutorials ? [mods.tutorial_smoke] : [mods."${mod_id}", mods.tutorial_smoke]
+            gameDirectory = project.file('run-tutorial-smoke')
+            systemProperty 'draconic_insight.smoke.output', tutorialSmokeReport.get().asFile.absolutePath
+            systemProperty 'draconic_insight.smoke.visual', project.hasProperty('tutorialVisualSmoke').toString()
+            systemProperty 'draconic_insight.smoke.packaged', packagedTutorials.toString()
+            systemProperty 'draconic_insight.smoke.expectedPonder', (!project.hasProperty('withoutPonder')).toString()
+            systemProperty 'draconic_insight.smoke.expectedPatchouli', (!project.hasProperty('withoutPatchouli')).toString()
+            systemProperty 'draconic_insight.smoke.expectedCreate', project.hasProperty('withCreate').toString()
+        }
+        tutorialSmokeServer {
+            server()
+            sourceSet = sourceSets.tutorialSmoke
+            loadedMods = packagedTutorials ? [mods.tutorial_smoke] : [mods."${mod_id}", mods.tutorial_smoke]
+            gameDirectory = project.file('run-tutorial-server-smoke')
+            programArgument '--nogui'
+            systemProperty 'draconic_insight.smoke.server', 'true'
+            systemProperty 'draconic_insight.smoke.output', tutorialServerReport.get().asFile.absolutePath
+            systemProperty 'draconic_insight.smoke.packaged', packagedTutorials.toString()
+            systemProperty 'draconic_insight.smoke.expectedPonder', (!project.hasProperty('withoutPonder')).toString()
+            systemProperty 'draconic_insight.smoke.expectedPatchouli', (!project.hasProperty('withoutPatchouli')).toString()
+            systemProperty 'draconic_insight.smoke.expectedCreate', project.hasProperty('withCreate').toString()
         }
     }
 }
 
 dependencies {
+    tutorialSmokeImplementation sourceSets.main.output
     compileOnly 'curse.maven:draconic-evolution-223565:8797042'
     compileOnly 'curse.maven:brandons-core-231382:7130990'
     compileOnly 'curse.maven:codechicken-lib-242818:8491811'
-    compileOnly 'mezz.jei:jei-1.21.1-neoforge-api:19.51.0.418'
+    compileOnly "mezz.jei:jei-1.21.1-neoforge-api:${jei_version}"
     compileOnly 'curse.maven:jade-324717:8591319'
+    compileOnly 'vazkii.patchouli:Patchouli:1.21.1-93-NEOFORGE'
+    compileOnly "dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}"
 
     runtimeOnly 'curse.maven:draconic-evolution-223565:8797042'
     runtimeOnly 'curse.maven:brandons-core-231382:7130990'
     runtimeOnly 'curse.maven:codechicken-lib-242818:8491811'
-    runtimeOnly 'mezz.jei:jei-1.21.1-neoforge:19.51.0.418'
+    runtimeOnly "mezz.jei:jei-1.21.1-neoforge:${jei_version}"
     runtimeOnly 'curse.maven:jade-324717:8591319'
-    runtimeOnly 'vazkii.patchouli:Patchouli:1.21.1-93-NEOFORGE'
+    if (!project.hasProperty('withoutPatchouli')) {
+        runtimeOnly 'vazkii.patchouli:Patchouli:1.21.1-93-NEOFORGE'
+    }
+    if (project.hasProperty('withoutPonder')) {
+        compileOnly(ponderCoordinate) { transitive = false }
+    } else {
+        implementation(jarJar(ponderCoordinate) {
+            version {
+                strictly "[${ponder_version}+mc${minecraft_version},2.0)"
+                prefer "${ponder_version}+mc${minecraft_version}"
+            }
+            transitive = false
+        })
+        runtimeOnly(jarJar(flywheelCoordinate) {
+            version {
+                strictly '[1.0.0,2.0)'
+                prefer flywheel_version
+            }
+        })
+    }
+    if (project.hasProperty('withCreate')) {
+        runtimeOnly('maven.modrinth:create:UjX6dr61') {
+            transitive = false
+        }
+    }
 
     testImplementation platform('org.junit:junit-bom:5.11.4')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+if (packagedTutorials) {
+    // The smoke driver must consume the release JAR, not main output directories
+    // or loose Ponder/Flywheel dependencies from the development classpath.
+    sourceSets.tutorialSmoke.runtimeClasspath = files(
+        sourceSets.tutorialSmoke.output,
+        configurations.tutorialSmokeRuntimeClasspath.filter { file ->
+            !sourceSets.main.output.files.contains(file) &&
+                !file.name.startsWith('ponder-neoforge-') &&
+                !file.name.startsWith('flywheel-neoforge-')
+        },
+        tasks.named('jar', Jar).flatMap { it.archiveFile }
+    )
 }
 
 tasks.named('test', Test) {
@@ -69,6 +165,7 @@ tasks.named('test', Test) {
 
 tasks.named('jar', Jar) {
     from('LICENSE')
+    from('THIRD_PARTY_NOTICES.md')
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -79,6 +176,8 @@ var generateModMetadata = tasks.register('generateModMetadata', ProcessResources
     var replaceProperties = [
         minecraft_version: minecraft_version,
         neo_version: neo_version,
+        neo_min_version: neo_min_version,
+        ponder_version: ponder_version,
         mod_id: mod_id,
         mod_name: mod_name,
         mod_version: mod_version
@@ -91,3 +190,86 @@ var generateModMetadata = tasks.register('generateModMetadata', ProcessResources
 
 sourceSets.main.resources.srcDir generateModMetadata
 neoForge.ideSyncTask generateModMetadata
+
+tasks.register('verifyTutorialSmoke') {
+    group = 'verification'
+    description = 'Start a client, validate tutorial registration/resources, and require its success report.'
+    dependsOn 'runTutorialSmokeClient'
+    doLast {
+        def output = tutorialSmokeReport.get().asFile
+        if (!output.isFile() || !new groovy.json.JsonSlurper().parse(output).passed) {
+            throw new GradleException("Tutorial client smoke failed; see ${output}")
+        }
+    }
+}
+
+tasks.named('runTutorialSmokeClient') {
+    if (packagedTutorials) dependsOn tasks.named('jar')
+    doFirst {
+        delete tutorialSmokeReport.get().asFile
+        if (project.hasProperty('tutorialVisualSmoke')) {
+            delete layout.buildDirectory.dir('tutorial-screens').get().asFile
+        }
+    }
+}
+
+tasks.named('runTutorialSmokeServer') {
+    if (packagedTutorials) dependsOn tasks.named('jar')
+    doFirst {
+        delete tutorialServerReport.get().asFile
+        copy {
+            from 'src/tools/tutorial-smoke/server.properties'
+            into 'run-tutorial-server-smoke'
+        }
+    }
+}
+
+tasks.register('verifyTutorialServerSmoke') {
+    group = 'verification'
+    description = 'Require a successful dedicated-server load with the tutorial distribution.'
+    dependsOn 'runTutorialSmokeServer'
+    doLast {
+        def output = tutorialServerReport.get().asFile
+        if (!output.isFile() || !new groovy.json.JsonSlurper().parse(output).passed) {
+            throw new GradleException("Tutorial server smoke failed; see ${output}")
+        }
+    }
+}
+
+tasks.register('verifyBundledTutorials') {
+    group = 'verification'
+    description = 'Require the release JAR to contain Ponder, Flywheel, and their license notices.'
+    dependsOn tasks.named('jar')
+    onlyIf { !project.hasProperty('withoutPonder') }
+    doLast {
+        def archive = tasks.named('jar', Jar).get().archiveFile.get().asFile
+        new java.util.zip.ZipFile(archive).withCloseable { zip ->
+            def metadata = zip.getEntry('META-INF/jarjar/metadata.json')
+            if (metadata == null) throw new GradleException('Release JAR is missing Jar-in-Jar metadata')
+            def libraries = new groovy.json.JsonSlurper().parse(zip.getInputStream(metadata)).jars
+            def expected = [
+                'net.createmod.ponder:ponder-neoforge': 'LICENSE_Ponder',
+                ("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}".toString()): 'META-INF/LICENSE.md'
+            ]
+            if (libraries.size() != expected.size()) throw new GradleException('Unexpected bundled library count')
+            libraries.each { library ->
+                def id = "${library.identifier.group}:${library.identifier.artifact}".toString()
+                if (!expected.containsKey(id)) throw new GradleException("Unexpected bundled library: ${id}")
+                def entry = zip.getEntry(library.path)
+                if (entry == null) throw new GradleException("Missing bundled JAR: ${library.path}")
+                def notices = []
+                new java.util.zip.ZipInputStream(zip.getInputStream(entry)).withCloseable { nested ->
+                    for (def item = nested.nextEntry; item != null; item = nested.nextEntry) {
+                        if (item.name == expected[id]) notices.add(item.name)
+                    }
+                }
+                if (notices.isEmpty()) throw new GradleException("Missing upstream license in ${id}")
+            }
+            if (zip.getEntry('THIRD_PARTY_NOTICES.md') == null) throw new GradleException('Missing third-party notices')
+        }
+    }
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('verifyBundledTutorials')
+}

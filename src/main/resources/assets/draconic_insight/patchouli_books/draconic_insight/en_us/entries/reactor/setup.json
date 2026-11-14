@@ -7,7 +7,10 @@
     {
       "type": "patchouli:spotlight",
       "item": "draconicevolution:reactor_core",
-      "title": "Farther Away",
+      "title": "Farther Away"
+    },
+    {
+      "type": "patchouli:text",
       "text": "$(bold)Warning:$() If this experiment fails, there may be nothing left nearby. I will not build the reactor near a base, valuable terrain, or another reactor; the farther away, the better.$(br2)The Core, Stabilizers, Injector, and power system must be kept together, and no part of them can stop while the reactor is running. The containment field also needs its own backup power supply."
     },
     {
@@ -18,39 +21,79 @@
     {
       "type": "patchouli:multiblock",
       "name": "Four Stabilizers",
+      "multiblock_id": "draconic_insight:reactor_stabilizers",
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0   S    ", "         ", "         ", "         ", "S   C   S", "         ", "         ", "         ", "    S    "]
+          [
+            "0   S    ",
+            "         ",
+            "         ",
+            "         ",
+            "S   C   S",
+            "         ",
+            "         ",
+            "         ",
+            "    S    "
+          ]
         ],
         "mapping": {
           "S": "draconicevolution:reactor_stabilizer",
           "C": "minecraft:purple_stained_glass"
         },
-        "offset": [4, 0, 4],
+        "offset": [
+          4,
+          0,
+          4
+        ],
         "symmetrical": true
-      },
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Four Stabilizers",
       "text": "This trial uses the minimum distance of four blocks. All four Stabilizers face inward. Purple only marks the Core's position; the actual Reactor Core belongs there."
     },
     {
       "type": "patchouli:multiblock",
       "name": "Top Injector",
+      "multiblock_id": "draconic_insight:reactor_injector",
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0"],
-          ["C"],
-          [" "],
-          [" "],
-          [" "],
-          ["I"]
+          [
+            "0"
+          ],
+          [
+            "I"
+          ],
+          [
+            " "
+          ],
+          [
+            " "
+          ],
+          [
+            " "
+          ],
+          [
+            "C"
+          ]
         ],
         "mapping": {
           "C": "minecraft:purple_stained_glass",
           "I": "draconicevolution:reactor_injector"
         },
-        "offset": [0, 1, 0]
-      },
+        "offset": [
+          0,
+          -5,
+          0
+        ]
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Top Injector",
       "text": "With the horizontal plane occupied by Stabilizers, the Energy Injector has to sit 4–7 blocks directly above the Core, facing downward, with containment energy supplied from its outer side. A second Injector can also be placed below the Core. The entire arrangement should rotate together."
     },
     {

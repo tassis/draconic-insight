@@ -15,15 +15,33 @@
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0   S    ", "         ", "         ", "         ", "S   X   S", "         ", "         ", "         ", "    S    "]
+          [
+            "0   S    ",
+            "         ",
+            "         ",
+            "         ",
+            "S   X   S",
+            "         ",
+            "         ",
+            "         ",
+            "    S    "
+          ]
         ],
         "mapping": {
           "S": "draconicevolution:energy_core_stabilizer",
           "X": "minecraft:purple_stained_glass"
         },
-        "offset": [4, 0, 4],
+        "offset": [
+          4,
+          0,
+          4
+        ],
         "symmetrical": true
-      },
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tier 1–4 Layout",
       "text": "The four stabilizers are each four blocks from the controller and lie on the same horizontal plane. Purple is only a marker for the controller, because the Core is too difficult to draw."
     },
     {
@@ -32,14 +50,31 @@
       "enable_visualize": true,
       "multiblock": {
         "pattern": [
-          ["0SSS", " SSS", " SSS"]
+          [
+            "0SSS"
+          ],
+          [
+            " SSS"
+          ],
+          [
+            " SSS"
+          ]
         ],
         "mapping": {
           "S": "draconicevolution:energy_core_stabilizer"
         },
         "symmetrical": true,
-        "offset": [1, 0, 1]
+        "offset": [
+          0,
+          -1,
+          2
+        ]
       },
+      "multiblock_id": "draconic_insight:advanced_stabilizers"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tier 5–8 Structure",
       "text": "At tiers 5–8, each stabilizer must expand into a 3×3 plane facing the Core. All four sides require 36 stabilizer blocks in total."
     },
     {

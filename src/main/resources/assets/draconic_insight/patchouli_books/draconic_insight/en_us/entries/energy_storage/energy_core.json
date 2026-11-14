@@ -49,15 +49,35 @@
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0  ", "   ", "   "],
-          ["   ", " X ", "   "],
-          ["   ", "   ", "   "]
+          [
+            "0  ",
+            "   ",
+            "   "
+          ],
+          [
+            "   ",
+            " X ",
+            "   "
+          ],
+          [
+            "   ",
+            "   ",
+            "   "
+          ]
         ],
         "mapping": {
           "X": "minecraft:purple_stained_glass"
         },
-        "offset": [1, 1, 1]
-      },
+        "offset": [
+          1,
+          -1,
+          1
+        ]
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Only the Controller",
       "text": "This is tier 1: it really is only the controller. Purple is merely a position marker; replace it with the actual Energy Core controller."
     },
     {
@@ -66,17 +86,37 @@
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0  ", " D ", "   "],
-          [" D ", "DXD", " D "],
-          ["   ", " D ", "   "]
+          [
+            "0  ",
+            " D ",
+            "   "
+          ],
+          [
+            " D ",
+            "DXD",
+            " D "
+          ],
+          [
+            "   ",
+            " D ",
+            "   "
+          ]
         ],
         "mapping": {
           "D": "#c:storage_blocks/draconium",
           "X": "minecraft:purple_stained_glass"
         },
-        "offset": [1, 1, 1],
+        "offset": [
+          1,
+          -1,
+          1
+        ],
         "symmetrical": true
-      },
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Six-Block Shell",
       "text": "Tier 2 needs one Draconium Block on each of the controller's six faces, which uses fewer materials than expected. Purple still marks the controller's position."
     },
     {
@@ -85,19 +125,57 @@
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0    ", "     ", "     ", "     ", "     "],
-          ["     ", " DDD ", " DDD ", " DDD ", "     "],
-          ["     ", " DDD ", " DXD ", " DDD ", "     "],
-          ["     ", " DDD ", " DDD ", " DDD ", "     "],
-          ["     ", "     ", "     ", "     ", "     "]
+          [
+            "0    ",
+            "     ",
+            "     ",
+            "     ",
+            "     "
+          ],
+          [
+            "     ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ],
+          [
+            "     ",
+            " DDD ",
+            " DXD ",
+            " DDD ",
+            "     "
+          ],
+          [
+            "     ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ],
+          [
+            "     ",
+            "     ",
+            "     ",
+            "     ",
+            "     "
+          ]
         ],
         "mapping": {
           "D": "#c:storage_blocks/draconium",
           "X": "minecraft:purple_stained_glass"
         },
-        "offset": [2, 2, 2],
+        "offset": [
+          2,
+          -2,
+          2
+        ],
         "symmetrical": true
-      },
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Solid Draconium Cube",
       "text": "Tier 3 suddenly becomes much heavier: almost a solid 3×3×3 cube of Draconium, with the controller at its center. Purple marks its position."
     },
     {
@@ -106,11 +184,41 @@
       "enable_visualize": false,
       "multiblock": {
         "pattern": [
-          ["0    ", " DDD ", " DDD ", " DDD ", "     "],
-          [" DDD ", "DRRRD", "DRRRD", "DRRRD", " DDD "],
-          [" DDD ", "DRRRD", "DRXRD", "DRRRD", " DDD "],
-          [" DDD ", "DRRRD", "DRRRD", "DRRRD", " DDD "],
-          ["     ", " DDD ", " DDD ", " DDD ", "     "]
+          [
+            "0    ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ],
+          [
+            " DDD ",
+            "DRRRD",
+            "DRRRD",
+            "DRRRD",
+            " DDD "
+          ],
+          [
+            " DDD ",
+            "DRRRD",
+            "DRXRD",
+            "DRRRD",
+            " DDD "
+          ],
+          [
+            " DDD ",
+            "DRRRD",
+            "DRRRD",
+            "DRRRD",
+            " DDD "
+          ],
+          [
+            "     ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ]
         ],
         "mapping": {
           "D": "#c:storage_blocks/draconium",
@@ -118,9 +226,222 @@
           "X": "minecraft:purple_stained_glass"
         },
         "symmetrical": true,
-        "offset": [2, 2, 2]
-      },
+        "offset": [
+          2,
+          -2,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Redstone Interior",
       "text": "Tier 4 uses a Redstone interior for the first time, wrapped in a layer of Draconium. Purple marks the controller's position. The structure becomes complicated here, so it is best to follow the build guide block by block."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T3: layer 1/3 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0    ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T3: layer 2/3 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0    ",
+            " DDD ",
+            " DXD ",
+            " DDD ",
+            "     "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T3: layer 3/3 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0    ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T4: layer 1/5 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0    ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "R": "#c:storage_blocks/redstone",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T4: layer 2/5 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0DDD ",
+            "DRRRD",
+            "DRRRD",
+            "DRRRD",
+            " DDD "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "R": "#c:storage_blocks/redstone",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T4: layer 3/5 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0DDD ",
+            "DRRRD",
+            "DRXRD",
+            "DRRRD",
+            " DDD "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "R": "#c:storage_blocks/redstone",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T4: layer 4/5 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0DDD ",
+            "DRRRD",
+            "DRRRD",
+            "DRRRD",
+            " DDD "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "R": "#c:storage_blocks/redstone",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "T4: layer 5/5 ↑",
+      "enable_visualize": false,
+      "multiblock": {
+        "pattern": [
+          [
+            "0    ",
+            " DDD ",
+            " DDD ",
+            " DDD ",
+            "     "
+          ]
+        ],
+        "mapping": {
+          "D": "#c:storage_blocks/draconium",
+          "R": "#c:storage_blocks/redstone",
+          "X": "minecraft:purple_stained_glass"
+        },
+        "offset": [
+          2,
+          0,
+          2
+        ]
+      }
     }
   ]
 }
