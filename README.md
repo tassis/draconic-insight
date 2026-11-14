@@ -1,6 +1,6 @@
 # Draconic Insight
 
-[![Build](https://github.com/tassis/draconic-insight/actions/workflows/build.yml/badge.svg)](https://github.com/tassis/draconic-insight/actions/workflows/build.yml)
+[![CI](https://github.com/tassis/draconic-insight/actions/workflows/build.yml/badge.svg)](https://github.com/tassis/draconic-insight/actions/workflows/build.yml)
 
 Independent NeoForge `1.21.1` information companion for Draconic Evolution.
 
@@ -17,7 +17,7 @@ The technical mod ID and resource namespace are `draconic_insight`; the Java pac
 
 ## Build
 
-GitHub Actions runs the full test and build pipeline for every push and pull request, then uploads a JAR whose name identifies the mod loader, Minecraft version, and mod version.
+GitHub Actions runs the full test and build pipeline for branch pushes, pull requests, and manual CI runs. CI uploads test reports on failure; release JARs are built and uploaded by the separate Release workflow.
 
 The local Docker build uses the same Gradle and Java versions as CI:
 
@@ -25,18 +25,26 @@ The local Docker build uses the same Gradle and Java versions as CI:
 docker compose run --rm gradle gradle --no-daemon clean test build
 ```
 
-The output JAR is written to `build/libs/draconic_insight-neoforge-1.21.1-0.1.0.jar`.
+The output JAR is written to `build/libs/draconic_insight-neoforge-1.21.1-<mod_version>.jar`, using the default version in `gradle.properties`.
 
 ## Releases
 
-Stable releases use annotated semantic-version tags with a `v` prefix. The tag must match `mod_version` in `gradle.properties`; for example, version `0.1.0` must use tag `v0.1.0`.
+Start releases from **Actions → Release → Run workflow**, select `main`, and enter `release_version` without a `v` prefix (for example `0.3.0` or `0.3.0-rc.1`). The equivalent GitHub CLI command is:
 
 ```bash
-git tag -a v0.1.0 -m "Draconic Insight 0.1.0"
-git push origin v0.1.0
+gh workflow run release.yml --ref main -f release_version=0.3.0
 ```
 
-A matching tag runs the full test/build pipeline, creates a GitHub Release named `Draconic Insight 0.1.0`, generates release notes, and attaches the versioned JAR. A mismatched tag fails before publication.
+The workflow:
+
+1. Requires `main` and validates the requested version and any existing tag/Release.
+2. Runs `gradle --no-daemon clean test build -Pmod_version=<release_version>`. The input controls both the JAR filename and embedded mod version; it does not rewrite `gradle.properties` or create a version commit.
+3. Uploads the JAR and its SHA-256 checksum as an Actions artifact, then creates the annotated `v<release_version>` tag at the exact commit built.
+4. Creates a draft GitHub Release with generated release notes, uploads both files, downloads them to verify byte-for-byte equality, and publishes the Release. Hyphenated versions are marked as prereleases.
+
+Releases are serialized and use the `release` GitHub environment. Configure that environment's deployment branch rule to allow only `main`; add required reviewers there if desired. The release job requires `contents: write` through `GITHUB_TOKEN` and permission to create `v*` tags under any repository tag rulesets.
+
+If publication fails after tag or draft creation, rerun the same workflow run for the same commit/version. An existing annotated tag must point directly to that commit. Draft assets may be replaced to finish publication; an already published Release is only verified against the rebuilt files and metadata. Conflicts fail rather than moving tags or replacing published assets. Manually pushing a tag no longer starts publication.
 
 ## License
 
